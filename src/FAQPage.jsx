@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState(null);
@@ -55,56 +56,100 @@ export default function FAQPage() {
   };
 
   return (
-    <div style={{
-      maxWidth: "900px",
-      margin: "0 auto",
-      padding: "2rem",
-      fontFamily: "'Open Sans', sans-serif"
-    }}>
-      <h1 style={{
-        textAlign: "center",
-        fontSize: "2.5rem",
-        color: "#0d1b2a",
-        marginBottom: "2rem",
-        fontFamily: "'Bebas Neue', sans-serif"
-      }}>
-        Frequently Asked Questions
-      </h1>
-
-      {faqs.map((faq, idx) => (
-        <div key={idx} style={{ marginBottom: "1.5rem" }}>
-          <div
-            onClick={() => toggleFAQ(idx)}
+    <>
+      {/* Logo Link */}
+      <div style={{ textAlign: "center", marginTop: "2rem", marginBottom: "2rem" }}>
+        <Link to="/">
+          <img
+            src="/images/logo.png"
+            alt="Home Logo"
             style={{
-              backgroundColor: "#f0f0f0",
-              padding: "1rem",
-              borderRadius: "8px",
+              height: "100px",
               cursor: "pointer",
-              color: "#0d1b2a",
-              fontWeight: "bold",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center"
+              transition: "transform 0.3s ease",
             }}
-          >
-            <span>{faq.question}</span>
-            <span>{openIndex === idx ? "-" : "+"}</span>
-          </div>
+            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.1)"}
+            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+          />
+        </Link>
+      </div>
 
-          {openIndex === idx && (
-            <div style={{
-              marginTop: "0.5rem",
-              backgroundColor: "#ffffff",
-              border: "2px solid #0d1b2a",
-              borderRadius: "8px",
-              padding: "1rem",
-              color: "#0d1b2a"
-            }}>
-              {faq.answer}
+      {/* FAQ Content */}
+      <div style={{
+        maxWidth: "900px",
+        margin: "0 auto",
+        padding: "2rem",
+        fontFamily: "'Open Sans', sans-serif"
+      }}>
+        <h1 style={{
+          textAlign: "center",
+          fontSize: "2.5rem",
+          color: "#0d1b2a",
+          marginBottom: "2rem",
+          fontFamily: "'Bebas Neue', sans-serif"
+        }}>
+          Frequently Asked Questions
+        </h1>
+
+        {faqs.map((faq, idx) => (
+          <div key={idx} style={{ marginBottom: "1.5rem" }}>
+            <div
+              onClick={() => toggleFAQ(idx)}
+              style={{
+                backgroundColor: "#f0f0f0",
+                padding: "1rem",
+                borderRadius: "8px",
+                cursor: "pointer",
+                color: "#0d1b2a",
+                fontWeight: "bold",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center"
+              }}
+            >
+              <span>{faq.question}</span>
+              <span>{openIndex === idx ? "-" : "+"}</span>
             </div>
-          )}
+
+            {openIndex === idx && (
+              <div style={{
+                marginTop: "0.5rem",
+                backgroundColor: "#ffffff",
+                border: "2px solid #0d1b2a",
+                borderRadius: "8px",
+                padding: "1rem",
+                color: "#0d1b2a"
+              }}>
+                {faq.answer}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Footer */}
+      <footer style={{
+        marginTop: "4rem",
+        padding: "2rem",
+        backgroundColor: "#0d1b2a",
+        color: "white",
+        textAlign: "center",
+        borderTop: "5px solid #00FF00"
+      }}>
+        <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+        <div style={{ marginBottom: "1rem" }}>
+          <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+          <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
         </div>
-      ))}
-    </div>
+        <div style={{ marginBottom: "1rem" }}>
+          Contact: sharpercurbappeal@email.com | (555) 555-5555
+        </div>
+        <div style={{ marginBottom: "1rem" }}>
+          <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+          <a href="#" style={{ color: "white", textDecoration: "underline" }}>Policies</a>
+        </div>
+        <div>© 2025 Sharper Curb Appeal. All rights reserved.</div>
+      </footer>
+    </>
   );
 }
