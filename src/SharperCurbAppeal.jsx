@@ -428,7 +428,7 @@ export default function SharperCurbAppeal() {
         <p style={{ fontWeight: "bold", fontSize: "1.2rem", marginTop: "1rem" }}>Total: ${total}</p>
 
         {/* Booking Form */}
-        <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Book Your Installation:</h2>
+        <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Contact Information & Preferred Installation Date:</h2>
       <div style={{ marginBottom: "1rem" }}>
         <label>Name:</label>
         <input
@@ -524,7 +524,7 @@ export default function SharperCurbAppeal() {
         cursor: "pointer",
         transition: "all 0.3s ease"
       }}>
-        Submit Appointment Request
+        Book Your Installation
       </button>
 
         {/* Footer */}
