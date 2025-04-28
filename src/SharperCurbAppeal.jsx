@@ -148,9 +148,9 @@ export default function SharperCurbAppeal() {
                 alt={`Mural ${num}`}
                 style={{
                   width: "100%",
-                  height: "400px",
+                  height: "600px",
                   objectFit: "cover",
-                  borderRadius: "8px"
+                  borderRadius: "12px"
                 }}
               />
             </div>
