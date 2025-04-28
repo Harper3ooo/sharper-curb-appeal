@@ -65,14 +65,27 @@ export default function SharperCurbAppeal() {
       </div>
 
       {/* Gallery */}
-      <div style={{ overflowX: "scroll", whiteSpace: "nowrap", marginBottom: "2rem" }}>
-        {[1, 2, 3, 4].map((num) => (
-          <img
-            key={num}
-            src={`/images/murals/mural${num}.jpg`}
-            alt={`Mural ${num}`}
-            style={{ width: "250px", height: "150px", objectFit: "cover", marginRight: "1rem", borderRadius: "8px" }}
-          />
+     <Slider
+  dots={true}
+  infinite={true}
+  speed={500}
+  slidesToShow={1}
+  slidesToScroll={1}
+  arrows={true}
+  autoplay={true}
+  autoplaySpeed={3000}
+>
+  {[1, 2, 3, 4].map((num) => (
+    <div key={num}>
+      <img
+        src={`/images/murals/mural${num}.jpg`}
+        alt={`Mural ${num}`}
+        style={{ width: "100%", height: "400px", objectFit: "cover", borderRadius: "8px" }}
+      />
+    </div>
+  ))}
+</Slider>
+
         ))}
       </div>
 
