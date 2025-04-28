@@ -64,7 +64,7 @@ export default function FAQPage() {
             src="/images/logo.png"
             alt="Home Logo"
             style={{
-              height: "100px",
+              height: "125px",
               cursor: "pointer",
               transition: "transform 0.3s ease",
             }}
