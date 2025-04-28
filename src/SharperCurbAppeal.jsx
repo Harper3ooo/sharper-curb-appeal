@@ -141,7 +141,7 @@ export default function SharperCurbAppeal() {
           autoplay={true}
           autoplaySpeed={3000}
         >
-          {[1, 2, 3, 4].map((num) => (
+          {[1, 2, 3].map((num) => (
             <div key={num}>
               <img
                 src={`/images/murals/mural${num}.png`}
