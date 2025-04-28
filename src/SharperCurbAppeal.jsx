@@ -67,7 +67,7 @@ export default function SharperCurbAppeal() {
         <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
       </div>
 
-      {/* Gallery (using real Slick slider) */}
+      {/* Gallery (Slick Slider) */}
       <Slider
         dots={true}
         infinite={true}
@@ -106,4 +106,302 @@ export default function SharperCurbAppeal() {
               border: `2px solid ${isSelected ? 'limegreen' : '#ccc'}`,
               padding: "1rem",
               marginBottom: "1rem",
-              backgroundColor:
+              backgroundColor: isBaseMural ? "#f0f0f0" : "white",
+              borderRadius: "8px",
+              transition: "border 0.3s ease"
+            }}>
+              <p><strong>{service.name}</strong> — ${service.price}</p>
+              {isBaseMural ? (
+                <p style={{ color: "#888", fontStyle: "italic", marginTop: "0.5rem" }}>Automatically added to your cart</p>
+              ) : (
+                <button
+                  onClick={() => addToCart(service)}
+                  style={{
+                    marginTop: "0.5rem",
+                    padding: "0.75rem 1.5rem",
+                    backgroundColor: "#0d1b2a",
+                    color: "#ffffff",
+                    border: "none",
+                    borderRadius: "8px",
+                    fontSize: "1rem",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    backgroundImage: "none",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.background = "url('/images/brushstroke-hover.png') center/cover no-repeat";
+                    e.target.style.color = "#ffffff";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "#0d1b2a";
+                    e.target.style.backgroundImage = "none";
+                    e.target.style.color = "#ffffff";
+                  }}
+                >
+                  Add
+                </button>
+              )}
+              
+              {service.name === "Add 1 Custom Logo" && (
+                <input
+                  value={logoRequestOne}
+                  onChange={(e) => setLogoRequestOne(e.target.value)}
+                  placeholder="Type the logo you want"
+                  style={{
+                    display: "block",
+                    marginTop: "0.5rem",
+                    padding: "0.5rem",
+                    width: "100%",
+                    borderRadius: "8px",
+                    border: "1px solid #ccc"
+                  }}
+                />
+              )}
+
+              {service.name === "Add 2 Custom Logos" && (
+                <input
+                  value={logoRequestTwo}
+                  onChange={(e) => setLogoRequestTwo(e.target.value)}
+                  placeholder="Type the logos you want"
+                  style={{
+                    display: "block",
+                    marginTop: "0.5rem",
+                    padding: "0.5rem",
+                    width: "100%",
+                    borderRadius: "8px",
+                    border: "1px solid #ccc"
+                  }}
+                />
+              )}
+
+              {service.name.includes("Slogan") && (
+                <input
+                  value={sloganRequest}
+                  onChange={(e) => setSloganRequest(e.target.value)}
+                  placeholder="Type your slogan or family name"
+                  style={{
+                    display: "block",
+                    marginTop: "0.5rem",
+                    padding: "0.5rem",
+                    width: "100%",
+                    borderRadius: "8px",
+                    border: "1px solid #ccc"
+                  }}
+                />
+              )}
+
+              {service.name.includes("Background Design") && (
+                <div style={{ marginTop: "0.5rem" }}>
+                  <label>Select Background:</label>
+                  <div>
+                    {["American Flag", "Beach", "Magnolia", "City Skyline", "Sports Field"].map((bg) => (
+                      <label key={bg} style={{ display: "block", marginTop: "0.25rem" }}>
+                        <input
+                          type="radio"
+                          name="backgroundTemplate"
+                          value={bg}
+                          checked={backgroundTemplate === bg}
+                          onChange={(e) => setBackgroundTemplate(e.target.value)}
+                        /> {bg}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Curb Details */}
+      <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Curb Details:</h2>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>House Numbers:</label>
+        <input
+          value={addressNumber}
+          onChange={(e) => setAddressNumber(e.target.value)}
+          placeholder="e.g. 210"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <label>Background Color:</label>
+        <input
+          value={backgroundColor}
+          onChange={(e) => setBackgroundColor(e.target.value)}
+          placeholder="e.g. Baby Blue"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+
+      {/* Order Summary */}
+      <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem" }}>Your Order:</h2>
+      <ul>
+        {cart.map((item, idx) => (
+          <li key={idx} style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "0.5rem",
+            fontSize: "1rem"
+          }}>
+            <span>{item.name} - ${item.price}</span>
+            <button
+              onClick={() => removeFromCart(idx)}
+              style={{
+                backgroundColor: "#e74c3c",
+                color: "white",
+                border: "none",
+                borderRadius: "8px",
+                padding: "0.25rem 0.5rem",
+                cursor: "pointer"
+              }}
+            >
+              ❌
+            </button>
+          </li>
+        ))}
+      </ul>
+      <p style={{ fontWeight: "bold", fontSize: "1.2rem", marginTop: "1rem" }}>Total: ${total}</p>
+
+      {/* Booking Form */}
+      <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Book Your Installation:</h2>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Name:</label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your Name"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Your Email"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Street Address:</label>
+        <input
+          value={streetAddress}
+          onChange={(e) => setStreetAddress(e.target.value)}
+          placeholder="Street Address"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <label>Phone Number:</label>
+        <input
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="Phone Number"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <label>Preferred Installation Date:</label>
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+
+      <button style={{
+        padding: "1rem",
+        width: "100%",
+        backgroundColor: "#0d1b2a",
+        color: "#fff",
+        border: "none",
+        borderRadius: "8px",
+        marginTop: "2rem",
+        fontSize: "1.2rem",
+        fontWeight: "600",
+        cursor: "pointer",
+        transition: "all 0.3s ease"
+      }}>
+        Submit Appointment Request
+      </button>
+
+      {/* Footer */}
+      <footer style={{
+        marginTop: "4rem",
+        padding: "2rem",
+        backgroundColor: "#0d1b2a",
+        color: "white",
+        textAlign: "center",
+        borderTop: "5px solid #00FF00"
+      }}>
+        <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+        <div style={{ marginBottom: "1rem" }}>
+          <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+          <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
+        </div>
+        <div style={{ marginBottom: "1rem" }}>
+          Contact: sharpercurbappeal@email.com | (555) 555-5555
+        </div>
+        <div style={{ marginBottom: "1rem" }}>
+          <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+          <a href="#" style={{ color: "white", textDecoration: "underline" }}>Policies</a>
+        </div>
+        <div>© 2025 Sharper Curb Appeal. All rights reserved.</div>
+      </footer>
+    </div>
+  );
+}
