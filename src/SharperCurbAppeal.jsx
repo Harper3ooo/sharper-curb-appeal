@@ -59,7 +59,7 @@ export default function SharperCurbAppeal() {
     }}>
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <img src="/images/your-logo-here.png" alt="Your Logo" style={{ height: "80px" }} />
+        <img src="/images/logo.png" alt="Your Logo" style={{ height: "125px" }} />
         <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "3rem", color: "#0d1b2a" }}>Sharper Curb Appeal</h1>
         <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
       </div>
@@ -68,7 +68,7 @@ export default function SharperCurbAppeal() {
 <Slider
   dots={true}
   infinite={true}
-  speed={500}
+  speed={650}
   slidesToShow={1}
   slidesToScroll={1}
   arrows={true}
@@ -78,7 +78,7 @@ export default function SharperCurbAppeal() {
   {[1, 2, 3, 4].map((num) => (
     <div key={num}>
       <img
-        src={`/images/murals/mural${num}.jpg`}
+        src={`/images/murals/mural${num}.png`}
         alt={`Mural ${num}`}
         style={{
           width: "100%",
@@ -364,7 +364,7 @@ export default function SharperCurbAppeal() {
         textAlign: "center",
         borderTop: "5px solid #00FF00"
       }}>
-        <img src="/images/your-logo-here.png" alt="Logo" style={{ height: "50px", marginBottom: "1rem" }} />
+        <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
         <div style={{ marginBottom: "1rem" }}>
           <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
           <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
