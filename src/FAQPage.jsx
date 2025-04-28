@@ -142,11 +142,10 @@ export default function FAQPage() {
           <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
         </div>
         <div style={{ marginBottom: "1rem" }}>
-          Contact: sharpercurbappeal@email.com | (555) 555-5555
+          sharpercurbappeal@gmail.com | (601) 674-0759
         </div>
         <div style={{ marginBottom: "1rem" }}>
           <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
-          <a href="#" style={{ color: "white", textDecoration: "underline" }}>Policies</a>
         </div>
         <div>© 2025 Sharper Curb Appeal. All rights reserved.</div>
       </footer>
