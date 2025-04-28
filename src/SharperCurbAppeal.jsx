@@ -195,52 +195,80 @@ export default function SharperCurbAppeal() {
                   </button>
                 )}
 
+                {/* Text inputs with error styling */}
                 {service.name === "Add 1 Custom Logo" && (
-                  <input
-                    value={logoRequestOne}
-                    onChange={(e) => setLogoRequestOne(e.target.value)}
-                    placeholder="Type the logo you want"
-                    style={{
-                      display: "block",
-                      marginTop: "0.5rem",
-                      padding: "0.5rem",
-                      width: "100%",
-                      borderRadius: "8px",
-                      border: "1px solid #ccc"
-                    }}
-                  />
+                  <div style={{ marginTop: "0.5rem" }}>
+                    <input
+                      value={logoRequestOne}
+                      onChange={(e) => setLogoRequestOne(e.target.value)}
+                      placeholder="Type the logo you want"
+                      style={{
+                        display: "block",
+                        marginTop: "0.5rem",
+                        padding: "0.5rem",
+                        width: "100%",
+                        borderRadius: "8px",
+                        border: "1px solid",
+                        borderColor: errorService === service.name ? "#e74c3c" : "#ccc",
+                        backgroundColor: errorService === service.name ? "#ffe5e5" : "white"
+                      }}
+                    />
+                    {errorService === service.name && (
+                      <div style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+                        Required information
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 {service.name === "Add 2 Custom Logos" && (
-                  <input
-                    value={logoRequestTwo}
-                    onChange={(e) => setLogoRequestTwo(e.target.value)}
-                    placeholder="Type the logos you want"
-                    style={{
-                      display: "block",
-                      marginTop: "0.5rem",
-                      padding: "0.5rem",
-                      width: "100%",
-                      borderRadius: "8px",
-                      border: "1px solid #ccc"
-                    }}
-                  />
+                  <div style={{ marginTop: "0.5rem" }}>
+                    <input
+                      value={logoRequestTwo}
+                      onChange={(e) => setLogoRequestTwo(e.target.value)}
+                      placeholder="Type the logos you want"
+                      style={{
+                        display: "block",
+                        marginTop: "0.5rem",
+                        padding: "0.5rem",
+                        width: "100%",
+                        borderRadius: "8px",
+                        border: "1px solid",
+                        borderColor: errorService === service.name ? "#e74c3c" : "#ccc",
+                        backgroundColor: errorService === service.name ? "#ffe5e5" : "white"
+                      }}
+                    />
+                    {errorService === service.name && (
+                      <div style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+                        Required information
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 {service.name.includes("Slogan") && (
-                  <input
-                    value={sloganRequest}
-                    onChange={(e) => setSloganRequest(e.target.value)}
-                    placeholder="Type your slogan or family name"
-                    style={{
-                      display: "block",
-                      marginTop: "0.5rem",
-                      padding: "0.5rem",
-                      width: "100%",
-                      borderRadius: "8px",
-                      border: "1px solid #ccc"
-                    }}
-                  />
+                  <div style={{ marginTop: "0.5rem" }}>
+                    <input
+                      value={sloganRequest}
+                      onChange={(e) => setSloganRequest(e.target.value)}
+                      placeholder="Type your slogan or family name"
+                      style={{
+                        display: "block",
+                        marginTop: "0.5rem",
+                        padding: "0.5rem",
+                        width: "100%",
+                        borderRadius: "8px",
+                        border: "1px solid",
+                        borderColor: errorService === service.name ? "#e74c3c" : "#ccc",
+                        backgroundColor: errorService === service.name ? "#ffe5e5" : "white"
+                      }}
+                    />
+                    {errorService === service.name && (
+                      <div style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+                        Required information
+                      </div>
+                    )}
+                  </div>
                 )}
 
                 {service.name.includes("Background Design") && (
@@ -259,6 +287,11 @@ export default function SharperCurbAppeal() {
                         </label>
                       ))}
                     </div>
+                    {errorService === service.name && (
+                      <div style={{ color: "#e74c3c", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+                        Required information
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
