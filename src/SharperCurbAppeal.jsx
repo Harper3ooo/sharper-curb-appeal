@@ -1,41 +1,35 @@
-import { useState } from 'react';
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-export default function SharperCurbAppeal() {
-  const [cart, setCart] = useState([{ name: "Base Mural (House Numbers + Background Color)", price: 50 }]);
-  const [addressNumber, setAddressNumber] = useState('');
-  const [backgroundColor, setBackgroundColor] = useState('');
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [streetAddress, setStreetAddress] = useState('');
+function SharperCurbAppeal() {
+  const [orderSummary, setOrderSummary] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+  });
 
-  const services = [
-    { name: "Add 1 Custom Logo", price: 20 },
-    { name: "Add 2 Custom Logos", price: 35 },
-    { name: "Add Slogan, Family Name, or Custom Text", price: 10 },
-    { name: "Add Custom Background Design (Skyline, Pattern, etc.)", price: 15 },
-  ];
-
-  const galleryImages = [
-    "/images/mural1.jpg",
-    "/images/mural2.jpg",
-    "/images/mural3.jpg",
-  ];
-
-  const addToCart = (service) => {
-    setCart([...cart, service]);
+  const handleAddItem = (item) => {
+    setOrderSummary([...orderSummary, item]);
   };
 
-  const removeFromCart = (index) => {
-    const newCart = [...cart];
-    newCart.splice(index, 1);
-    setCart(newCart);
+  const handleRemoveItem = (index) => {
+    const newOrder = [...orderSummary];
+    newOrder.splice(index, 1);
+    setOrderSummary(newOrder);
   };
 
-  const total = cart.reduce((acc, item) => acc + item.price, 0);
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Submit appointment request logic here
+  };
 
   const sliderSettings = {
     dots: true,
@@ -43,170 +37,147 @@ export default function SharperCurbAppeal() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    arrows: true,
     autoplay: true,
-    autoplaySpeed: 4000,
-    arrows: false,
+    autoplaySpeed: 3000,
   };
 
   return (
-    <div
-      className="min-h-screen bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/linen-texture.png')" }}
-    >
-      <div className="max-w-7xl mx-auto px-6 py-10">
+    <div className="sharper-curb-appeal">
+      
+      {/* Logo at the top */}
+      <header className="header">
+        <img src="/logo.png" alt="Sharper Curb Appeal Logo" className="header-logo" />
+        <h2 className="slogan">
+          Sharper Curb Appeal — Serving Homeowners, Businesses, Heroes, and Communities Across the Jackson-Metro Area.
+        </h2>
+      </header>
 
-        {/* Hero Section */}
-        <div className="flex flex-col items-center mb-10">
-          <img src="/images/your-logo-here.png" alt="Logo" className="h-24 mb-4" />
-          <h1 className="text-4xl font-bold text-center text-blue-900 mb-2">
-            Sharper Curb Appeal
-          </h1>
-          <p className="text-lg text-gray-600 text-center max-w-2xl">
-            Custom curb murals that show your spirit and sharpen your home's style.
-          </p>
+      {/* Mural Slider */}
+      <section className="mural-slider">
+        <Slider {...sliderSettings}>
+          <div><img src="/mural1.jpg" alt="Mural 1" /></div>
+          <div><img src="/mural2.jpg" alt="Mural 2" /></div>
+          <div><img src="/mural3.jpg" alt="Mural 3" /></div>
+        </Slider>
+      </section>
+
+      {/* Build Your Curb Section */}
+      <section className="build-your-curb">
+        <h2>Build Your Curb</h2>
+
+        {/* Base Mural (required) */}
+        <div className="option base-mural">
+          <h3>Base Mural</h3>
+          <p>$50 (Required)</p>
+          <small>This option has been automatically added to your cart.</small>
         </div>
 
-        {/* Full Width Carousel */}
-        <div className="w-full mb-12">
-          <Slider {...sliderSettings}>
-            {galleryImages.map((src, index) => (
-              <div key={index}>
-                <img src={src} alt={`Mural ${index + 1}`} className="w-full h-96 object-cover rounded-lg shadow-md" />
-              </div>
-            ))}
-          </Slider>
+        {/* Other options */}
+        <div className="option" onClick={() => handleAddItem('Add Logo - Basic')}>
+          <h3>Add Logo - Basic</h3>
+          <p>$25</p>
+          <input
+            type="text"
+            placeholder="Specify your logo (e.g., 'Ole Miss')"
+            className="logo-input"
+          />
         </div>
 
-        {/* Service Menu */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Build Your Curb Mural</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, idx) => (
-              <div key={idx} className="border p-6 rounded-xl shadow bg-white flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">{service.name}</h3>
-                  <p className="text-gray-600 mb-4">${service.price}</p>
-                </div>
-                <button
-                  onClick={() => addToCart(service)}
-                  className="group relative py-2 px-5 overflow-hidden rounded-xl text-white font-bold bg-teal-600 hover:text-white"
-                >
-                  <span className="absolute inset-0 bg-lime-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                  <span className="relative z-10">Add</span>
-                </button>
-              </div>
-            ))}
+        <div className="option" onClick={() => handleAddItem('Custom Team Logo')}>
+          <h3>Custom Team Logo</h3>
+          <p>$35</p>
+          <input
+            type="text"
+            placeholder="Specify your logo (e.g., 'Mississippi Braves')"
+            className="logo-input"
+          />
+        </div>
+
+      </section>
+
+      {/* Order Summary */}
+      <section className="order-summary">
+        <h2>Your Order Summary</h2>
+        <ul>
+          <li>Base Mural - $50</li>
+          {orderSummary.map((item, index) => (
+            <li key={index}>
+              {item}
+              <button className="remove-button" onClick={() => handleRemoveItem(index)}>✖</button>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Book Your Installation Form */}
+      <section className="book-installation">
+        <h2>Book Your Installation</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleInputChange}
+            required
+          />
+          <input
+            type="text"
+            name="address"
+            placeholder="Street Address"
+            value={formData.address}
+            onChange={handleInputChange}
+            required
+          />
+          <button type="submit" className="submit-button">
+            Submit Appointment Request
+          </button>
+        </form>
+      </section>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-top">
+          <img src="/logo.png" alt="Sharper Curb Appeal Footer Logo" className="footer-logo" />
+          <div className="footer-contact">
+            <p>Jackson, MS</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: info@sharpercurbappeal.com</p>
+          </div>
+          <div className="footer-social">
+            {/* Replace with real links */}
+            <a href="/">Facebook</a>
+            <a href="/">Instagram</a>
+            <a href="/">Twitter</a>
           </div>
         </div>
-
-     {/* Order Summary */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Your Order Summary</h2>
-          <ul className="space-y-2 mb-4">
-            {cart.map((item, index) => (
-              <li key={index} className="flex justify-between bg-white p-4 rounded-lg shadow">
-                <span>{item.name}</span>
-                {item.name !== "Base Mural (House Numbers + Background Color)" && (
-                  <button
-                    onClick={() => removeFromCart(index)}
-                    className="text-red-600 hover:underline text-sm"
-                  >
-                    Remove
-                  </button>
-                )}
-              </li>
-            ))}
-          </ul>
-          <div className="text-2xl font-bold text-center text-teal-700 mb-8">Total: ${total}</div>
-        </div>
-
-        {/* Curb Details Form */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Curb Details</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="House Numbers (e.g. 210)"
-              value={addressNumber}
-              onChange={(e) => setAddressNumber(e.target.value)}
-            />
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="Background Color (e.g. Baby Blue)"
-              value={backgroundColor}
-              onChange={(e) => setBackgroundColor(e.target.value)}
-            />
+        <div className="footer-bottom">
+          <p>© {new Date().getFullYear()} Sharper Curb Appeal. All rights reserved.</p>
+          <div className="footer-links">
+            <a href="/faq">FAQ</a>
+            <a href="/policies">Policies</a>
           </div>
         </div>
-
-        {/* Appointment Form */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-blue-900 mb-6 text-center">Book Your Installation</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="Full Name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="Email Address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="Phone Number"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <input
-              className="p-3 border rounded-lg"
-              placeholder="Street Address"
-              value={streetAddress}
-              onChange={(e) => setStreetAddress(e.target.value)}
-            />
-          </div>
-          <div className="flex justify-center mt-8">
-            <button
-              className="group relative py-3 px-8 overflow-hidden rounded-xl text-white font-bold bg-blue-900 hover:text-white"
-            >
-              <span className="absolute inset-0 bg-lime-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-              <span className="relative z-10">Submit Appointment Request</span>
-            </button>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <footer className="bg-blue-900 text-white py-10 mt-20 rounded-t-3xl">
-          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-            <div>
-              <img src="/images/your-logo-here.png" alt="Logo" className="h-16 mx-auto md:mx-0 mb-4" />
-              <p className="text-sm">Sharper Curb Appeal © {new Date().getFullYear()}</p>
-              <p className="text-sm">All rights reserved.</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-2">Contact</h3>
-              <p className="text-sm">Email: info@sharpercurb.com</p>
-              <p className="text-sm">Phone: (123) 456-7890</p>
-            </div>
-            <div>
-              <h3 className="font-bold mb-2">Links</h3>
-              <a href="#" className="block text-sm hover:underline">FAQ</a>
-              <a href="#" className="block text-sm hover:underline">Policies</a>
-            </div>
-            <div className="flex flex-col items-center md:items-start">
-              <h3 className="font-bold mb-2">Follow Us</h3>
-              <div className="flex space-x-4">
-                <a href="#"><img src="/images/facebook-icon.png" alt="Facebook" className="h-6" /></a>
-                <a href="#"><img src="/images/instagram-icon.png" alt="Instagram" className="h-6" /></a>
-              </div>
-            </div>
-          </div>
-        </footer>
-
-      </div>
+      </footer>
     </div>
   );
 }
+
+export default SharperCurbAppeal;
