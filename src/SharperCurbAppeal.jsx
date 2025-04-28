@@ -17,6 +17,7 @@ export default function SharperCurbAppeal() {
   const [sloganRequest, setSloganRequest] = useState('');
   const [backgroundTemplate, setBackgroundTemplate] = useState('');
   const [selectedServices, setSelectedServices] = useState([]);
+  const [errorService, setErrorService] = useState('');
 
   const services = [
     { name: "Base Mural (House Numbers + Background Color)", price: 50 },
@@ -43,20 +44,37 @@ export default function SharperCurbAppeal() {
     let newItem = { ...item };
 
     if (item.name.includes("Add 1 Custom Logo")) {
+      if (!logoRequestOne.trim()) {
+        setErrorService(item.name);
+        return;
+      }
       newItem.details = logoRequestOne;
     }
     if (item.name.includes("Add 2 Custom Logos")) {
+      if (!logoRequestTwo.trim()) {
+        setErrorService(item.name);
+        return;
+      }
       newItem.details = logoRequestTwo;
     }
     if (item.name.includes("Slogan")) {
+      if (!sloganRequest.trim()) {
+        setErrorService(item.name);
+        return;
+      }
       newItem.details = sloganRequest;
     }
     if (item.name.includes("Background Design")) {
+      if (!backgroundTemplate.trim()) {
+        setErrorService(item.name);
+        return;
+      }
       newItem.details = backgroundTemplate;
     }
 
     setCart([...cart, newItem]);
     setSelectedServices([...selectedServices, item.name]);
+    setErrorService('');
   };
 
   const removeFromCart = (index) => {
@@ -68,167 +86,185 @@ export default function SharperCurbAppeal() {
   const total = cart.reduce((acc, item) => acc + item.price, 0);
 
   return (
-    <div style={{
-      fontFamily: "'Open Sans', sans-serif",
-      background: "url('/images/background-texture.png') repeat",
-      backgroundColor: "#ffffff",
-      padding: "2rem",
-      maxWidth: "1200px",
-      margin: "0 auto"
-    }}>
-      {/* Header */}
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <img src="/images/logo.png" alt="Your Logo" style={{ height: "125px" }} />
-        <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "3rem", color: "#0d1b2a" }}></h1>
-        <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
-      </div>
+    <>
+      <style>
+        {`
+          @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+          }
+        `}
+      </style>
 
-      {/* Gallery (Slick Slider) */}
-      <Slider
-        dots={true}
-        infinite={true}
-        speed={650}
-        slidesToShow={1}
-        slidesToScroll={1}
-        arrows={true}
-        autoplay={true}
-        autoplaySpeed={3000}
-      >
-        {[1, 2, 3, 4].map((num) => (
-          <div key={num}>
-            <img
-              src={`/images/murals/mural${num}.png`}
-              alt={`Mural ${num}`}
-              style={{
-                width: "100%",
-                height: "400px",
-                objectFit: "cover",
-                borderRadius: "8px"
-              }}
-            />
-          </div>
-        ))}
-      </Slider>
+      <div style={{
+        fontFamily: "'Open Sans', sans-serif",
+        background: "url('/images/background-texture.png') repeat",
+        backgroundColor: "#ffffff",
+        padding: "2rem",
+        maxWidth: "1200px",
+        margin: "0 auto"
+      }}>
+        {/* Header */}
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <img src="/images/logo.png" alt="Your Logo" style={{ height: "125px" }} />
+          <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "3rem", color: "#0d1b2a" }}></h1>
+          <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
+        </div>
 
-      {/* Build Your Mural */}
-      <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginBottom: "1rem" }}>Build Your Curb:</h2>
-      <div>
-        {services.map((service, idx) => {
-          const isBaseMural = service.name.includes("Base Mural");
-          const isSelected = selectedServices.includes(service.name);
-
-          return (
-            <div key={idx} style={{
-              border: `2px solid ${isSelected ? 'limegreen' : '#ccc'}`,
-              padding: "1rem",
-              marginBottom: "1rem",
-              backgroundColor: isBaseMural ? "#f0f0f0" : "white",
-              borderRadius: "8px",
-              transition: "border 0.3s ease"
-            }}>
-              <p><strong>{service.name}</strong> — ${service.price}</p>
-              {isBaseMural ? (
-                <p style={{ color: "#888", fontStyle: "italic", marginTop: "0.5rem" }}>Automatically added to your cart</p>
-              ) : (
-                <button
-                  onClick={() => addToCart(service)}
-                  style={{
-                    marginTop: "0.5rem",
-                    padding: "0.75rem 1.5rem",
-                    backgroundColor: "#0d1b2a",
-                    color: "#ffffff",
-                    border: "none",
-                    borderRadius: "8px",
-                    fontSize: "1rem",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                    backgroundImage: "none",
-                    transition: "all 0.3s ease"
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.background = "url('/images/brushstroke-hover.png') center/cover no-repeat";
-                    e.target.style.color = "#ffffff";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "#0d1b2a";
-                    e.target.style.backgroundImage = "none";
-                    e.target.style.color = "#ffffff";
-                  }}
-                >
-                  Add
-                </button>
-              )}
-
-              {service.name === "Add 1 Custom Logo" && (
-                <input
-                  value={logoRequestOne}
-                  onChange={(e) => setLogoRequestOne(e.target.value)}
-                  placeholder="Type the logo you want"
-                  style={{
-                    display: "block",
-                    marginTop: "0.5rem",
-                    padding: "0.5rem",
-                    width: "100%",
-                    borderRadius: "8px",
-                    border: "1px solid #ccc"
-                  }}
-                />
-              )}
-
-              {service.name === "Add 2 Custom Logos" && (
-                <input
-                  value={logoRequestTwo}
-                  onChange={(e) => setLogoRequestTwo(e.target.value)}
-                  placeholder="Type the logos you want"
-                  style={{
-                    display: "block",
-                    marginTop: "0.5rem",
-                    padding: "0.5rem",
-                    width: "100%",
-                    borderRadius: "8px",
-                    border: "1px solid #ccc"
-                  }}
-                />
-              )}
-
-              {service.name.includes("Slogan") && (
-                <input
-                  value={sloganRequest}
-                  onChange={(e) => setSloganRequest(e.target.value)}
-                  placeholder="Type your slogan or family name"
-                  style={{
-                    display: "block",
-                    marginTop: "0.5rem",
-                    padding: "0.5rem",
-                    width: "100%",
-                    borderRadius: "8px",
-                    border: "1px solid #ccc"
-                  }}
-                />
-              )}
-
-              {service.name.includes("Background Design") && (
-                <div style={{ marginTop: "0.5rem" }}>
-                  <label>Select Background:</label>
-                  <div>
-                    {["American Flag", "Beach", "Magnolia", "City Skyline", "Sports Field"].map((bg) => (
-                      <label key={bg} style={{ display: "block", marginTop: "0.25rem" }}>
-                        <input
-                          type="radio"
-                          name="backgroundTemplate"
-                          value={bg}
-                          checked={backgroundTemplate === bg}
-                          onChange={(e) => setBackgroundTemplate(e.target.value)}
-                        /> {bg}
-                      </label>
-                    ))}
-                  </div>
-                </div>
-              )}
+        {/* Gallery (Slick Slider) */}
+        <Slider
+          dots={true}
+          infinite={true}
+          speed={650}
+          slidesToShow={1}
+          slidesToScroll={1}
+          arrows={true}
+          autoplay={true}
+          autoplaySpeed={3000}
+        >
+          {[1, 2, 3, 4].map((num) => (
+            <div key={num}>
+              <img
+                src={`/images/murals/mural${num}.png`}
+                alt={`Mural ${num}`}
+                style={{
+                  width: "100%",
+                  height: "400px",
+                  objectFit: "cover",
+                  borderRadius: "8px"
+                }}
+              />
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </Slider>
+
+        {/* Build Your Mural */}
+        <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginBottom: "1rem" }}>Build Your Curb:</h2>
+        <div>
+          {services.map((service, idx) => {
+            const isBaseMural = service.name.includes("Base Mural");
+            const isSelected = selectedServices.includes(service.name);
+
+            return (
+              <div key={idx} style={{
+                border: `2px solid ${isSelected ? 'limegreen' : '#ccc'}`,
+                padding: "1rem",
+                marginBottom: "1rem",
+                backgroundColor: isBaseMural ? "#f0f0f0" : "white",
+                borderRadius: "8px",
+                transition: "border 0.3s ease"
+              }}>
+                <p><strong>{service.name}</strong> — ${service.price}</p>
+                {isBaseMural ? (
+                  <p style={{ color: "#888", fontStyle: "italic", marginTop: "0.5rem" }}>Automatically added to your cart</p>
+                ) : (
+                  <button
+                    onClick={() => addToCart(service)}
+                    style={{
+                      marginTop: "0.5rem",
+                      padding: "0.75rem 1.5rem",
+                      backgroundColor: errorService === service.name ? "#e74c3c" : "#0d1b2a",
+                      color: "#ffffff",
+                      border: "none",
+                      borderRadius: "8px",
+                      fontSize: "1rem",
+                      fontWeight: "600",
+                      cursor: "pointer",
+                      backgroundImage: "none",
+                      transition: "all 0.3s ease",
+                      animation: errorService === service.name ? "shake 0.5s" : "none"
+                    }}
+                    onMouseEnter={(e) => {
+                      if (errorService !== service.name) {
+                        e.target.style.background = "url('/images/brushstroke-hover.png') center/cover no-repeat";
+                        e.target.style.color = "#ffffff";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (errorService !== service.name) {
+                        e.target.style.backgroundColor = "#0d1b2a";
+                        e.target.style.backgroundImage = "none";
+                        e.target.style.color = "#ffffff";
+                      }
+                    }}
+                  >
+                    Add
+                  </button>
+                )}
+
+                {service.name === "Add 1 Custom Logo" && (
+                  <input
+                    value={logoRequestOne}
+                    onChange={(e) => setLogoRequestOne(e.target.value)}
+                    placeholder="Type the logo you want"
+                    style={{
+                      display: "block",
+                      marginTop: "0.5rem",
+                      padding: "0.5rem",
+                      width: "100%",
+                      borderRadius: "8px",
+                      border: "1px solid #ccc"
+                    }}
+                  />
+                )}
+
+                {service.name === "Add 2 Custom Logos" && (
+                  <input
+                    value={logoRequestTwo}
+                    onChange={(e) => setLogoRequestTwo(e.target.value)}
+                    placeholder="Type the logos you want"
+                    style={{
+                      display: "block",
+                      marginTop: "0.5rem",
+                      padding: "0.5rem",
+                      width: "100%",
+                      borderRadius: "8px",
+                      border: "1px solid #ccc"
+                    }}
+                  />
+                )}
+
+                {service.name.includes("Slogan") && (
+                  <input
+                    value={sloganRequest}
+                    onChange={(e) => setSloganRequest(e.target.value)}
+                    placeholder="Type your slogan or family name"
+                    style={{
+                      display: "block",
+                      marginTop: "0.5rem",
+                      padding: "0.5rem",
+                      width: "100%",
+                      borderRadius: "8px",
+                      border: "1px solid #ccc"
+                    }}
+                  />
+                )}
+
+                {service.name.includes("Background Design") && (
+                  <div style={{ marginTop: "0.5rem" }}>
+                    <label>Select Background:</label>
+                    <div>
+                      {["American Flag", "Beach", "Magnolia", "City Skyline", "Sports Field"].map((bg) => (
+                        <label key={bg} style={{ display: "block", marginTop: "0.25rem" }}>
+                          <input
+                            type="radio"
+                            name="backgroundTemplate"
+                            value={bg}
+                            checked={backgroundTemplate === bg}
+                            onChange={(e) => setBackgroundTemplate(e.target.value)}
+                          /> {bg}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
 
       {/* Curb Details */}
       <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Curb Details:</h2>
@@ -428,5 +464,6 @@ export default function SharperCurbAppeal() {
         <div>© 2025 Sharper Curb Appeal. All rights reserved.</div>
       </footer>
     </div>
+    </>
   );
 }
