@@ -429,7 +429,103 @@ export default function SharperCurbAppeal() {
 
         {/* Booking Form */}
         <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginTop: "2rem" }}>Book Your Installation:</h2>
-        {/* Booking Form Inputs... (same structure you had before, can repost if needed) */}
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Name:</label>
+        <input
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Your Name"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Your Email"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "1rem" }}>
+        <label>Street Address:</label>
+        <input
+          value={streetAddress}
+          onChange={(e) => setStreetAddress(e.target.value)}
+          placeholder="Street Address"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <label>Phone Number:</label>
+        <input
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="Phone Number"
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+      <div style={{ marginBottom: "2rem" }}>
+        <label>Preferred Installation Date:</label>
+        <input
+          type="date"
+          value={selectedDate}
+          onChange={(e) => setSelectedDate(e.target.value)}
+          style={{
+            display: "block",
+            marginTop: "0.5rem",
+            padding: "0.5rem",
+            width: "100%",
+            borderRadius: "8px",
+            border: "1px solid #ccc"
+          }}
+        />
+      </div>
+
+      <button style={{
+        padding: "1rem",
+        width: "100%",
+        backgroundColor: "#0d1b2a",
+        color: "#fff",
+        border: "none",
+        borderRadius: "8px",
+        marginTop: "2rem",
+        fontSize: "1.2rem",
+        fontWeight: "600",
+        cursor: "pointer",
+        transition: "all 0.3s ease"
+      }}>
+        Submit Appointment Request
+      </button>
 
         {/* Footer */}
         <footer style={{
