@@ -127,7 +127,7 @@ export default function SharperCurbAppeal() {
         <div style={{ textAlign: "center", marginBottom: "2rem" }}>
           <img src="/images/logo.png" alt="Your Logo" style={{ height: "125px" }} />
           <h1 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "3rem", color: "#0d1b2a" }}></h1>
-          <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
+          <p style={{ color: "#4a4a4a" }}>Serving Homeowners, Businesses, Heroes, and Communities Across the Jackson-Metro Area..</p>
         </div>
 
         {/* Gallery (Slick Slider) */}
