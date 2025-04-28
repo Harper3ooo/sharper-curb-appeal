@@ -64,8 +64,7 @@ export default function SharperCurbAppeal() {
         <p style={{ color: "#4a4a4a" }}>Serving the Jackson-Metro Area with custom curb designs that show pride and style.</p>
       </div>
 
-      {/* Gallery */}
-     
+{/* Gallery (now using real Slick slider) */}
 <Slider
   dots={true}
   infinite={true}
@@ -81,14 +80,17 @@ export default function SharperCurbAppeal() {
       <img
         src={`/images/murals/mural${num}.jpg`}
         alt={`Mural ${num}`}
-        style={{ width: "100%", height: "400px", objectFit: "cover", borderRadius: "8px" }}
+        style={{
+          width: "100%",
+          height: "400px",
+          objectFit: "cover",
+          borderRadius: "8px"
+        }}
       />
     </div>
   ))}
 </Slider>
 
-        ))}
-      </div>
 
       {/* Build Your Mural */}
       <h2 style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: "2rem", marginBottom: "1rem" }}>Build Your Curb Mural:</h2>
