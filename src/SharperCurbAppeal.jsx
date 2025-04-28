@@ -14,9 +14,9 @@ export default function SharperCurbAppeal() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [logoRequestOne, setLogoRequestOne] = useState('');
   const [logoRequestTwo, setLogoRequestTwo] = useState('');
-  const [selectedServices, setSelectedServices] = useState([]);
   const [sloganRequest, setSloganRequest] = useState('');
   const [backgroundTemplate, setBackgroundTemplate] = useState('');
+  const [selectedServices, setSelectedServices] = useState([]);
 
   const services = [
     { name: "Base Mural (House Numbers + Background Color)", price: 50 },
@@ -39,7 +39,23 @@ export default function SharperCurbAppeal() {
       alert("You must have the Base Mural in your order first.");
       return;
     }
-    setCart([...cart, item]);
+
+    let newItem = { ...item };
+
+    if (item.name.includes("Add 1 Custom Logo")) {
+      newItem.details = logoRequestOne;
+    }
+    if (item.name.includes("Add 2 Custom Logos")) {
+      newItem.details = logoRequestTwo;
+    }
+    if (item.name.includes("Slogan")) {
+      newItem.details = sloganRequest;
+    }
+    if (item.name.includes("Background Design")) {
+      newItem.details = backgroundTemplate;
+    }
+
+    setCart([...cart, newItem]);
     setSelectedServices([...selectedServices, item.name]);
   };
 
@@ -142,7 +158,7 @@ export default function SharperCurbAppeal() {
                   Add
                 </button>
               )}
-              
+
               {service.name === "Add 1 Custom Logo" && (
                 <input
                   value={logoRequestOne}
@@ -255,25 +271,34 @@ export default function SharperCurbAppeal() {
         {cart.map((item, idx) => (
           <li key={idx} style={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "0.5rem",
-            fontSize: "1rem"
+            flexDirection: "column",
+            marginBottom: "0.75rem",
+            fontSize: "1rem",
+            borderBottom: "1px solid #ccc",
+            paddingBottom: "0.5rem"
           }}>
-            <span>{item.name} - ${item.price}</span>
-            <button
-              onClick={() => removeFromCart(idx)}
-              style={{
-                backgroundColor: "#e74c3c",
-                color: "white",
-                border: "none",
-                borderRadius: "8px",
-                padding: "0.25rem 0.5rem",
-                cursor: "pointer"
-              }}
-            >
-              ❌
-            </button>
+            <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
+              <span><strong>{item.name}</strong> - ${item.price}</span>
+              <button
+                onClick={() => removeFromCart(idx)}
+                style={{
+                  backgroundColor: "#e74c3c",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "0.25rem 0.5rem",
+                  cursor: "pointer",
+                  height: "30px"
+                }}
+              >
+                ❌
+              </button>
+            </div>
+            {item.details && (
+              <div style={{ marginTop: "0.25rem", fontSize: "0.9rem", color: "#555" }}>
+                ➔ {item.details}
+              </div>
+            )}
           </li>
         ))}
       </ul>
