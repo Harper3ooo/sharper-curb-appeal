@@ -65,7 +65,8 @@ export default function SharperCurbAppeal() {
       </div>
 
       {/* Gallery */}
-     <Slider
+     
+<Slider
   dots={true}
   infinite={true}
   speed={500}
