@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import ArrowDriveHome from './ArrowDriveHome';   // New homepage
 import SharperCurbAppeal from './SharperCurbAppeal';
 import FAQPage from './FAQPage';
+// You'll add AthletePage and InflatablesPage later
 
 export default function App() {
   return (
@@ -23,8 +25,12 @@ export default function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<SharperCurbAppeal />} />
+        <Route path="/" element={<ArrowDriveHome />} />
+        <Route path="/curb" element={<SharperCurbAppeal />} />
         <Route path="/faq" element={<FAQPage />} />
+        {/* Future expansion */}
+        {/* <Route path="/athlete" element={<AthletePage />} /> */}
+        {/* <Route path="/inflatables" element={<InflatablesPage />} /> */}
       </Routes>
     </Router>
   );
