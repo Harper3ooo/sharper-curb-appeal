@@ -1,0 +1,116 @@
+.inflatable-business-page {
+    font-family: 'Oswald', sans-serif;
+    color: #0d1b2a;
+    background-color: #ffffff;
+    text-align: center;
+  }
+  
+  .header {
+    margin: 2rem 0 1rem 0;
+  }
+  
+  .logo {
+    max-width: 200px;
+    width: 100%;
+  }
+  
+  .hero {
+    margin-bottom: 3rem;
+    padding: 0 1rem;
+  }
+  
+  .hero-image {
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+  }
+  
+  .info-section, .booking-instructions, .pricing-section {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  ol {
+    text-align: left;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  .cta-section {
+    margin: 3rem 0;
+  }
+  
+  .book-now-button {
+    background-color: orange;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .book-now-button:hover {
+    background-color: darkorange;
+  }
+  
+  /* Footer - Matching Sharper Curb Appeal */
+  .footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: #0d1b2a;
+    color: white;
+    text-align: center;
+    border-top: 5px solid #00FF00;
+  }
+  
+  .footer-logo {
+    height: 100px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-link {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .footer-contact {
+    margin-bottom: 1rem;
+  }
+  
+  .footer-copy {
+    font-size: 0.9rem;
+    color: #ccc;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+  }  
