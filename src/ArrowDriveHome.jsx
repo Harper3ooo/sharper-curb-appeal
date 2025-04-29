@@ -6,19 +6,19 @@ export default function ArrowDriveHome() {
     {
       name: 'Sharper Curb Appeal',
       path: '/sharper-curb-appeal',
-      image: 'placholder.png',
+      image: 'curb-thumnail.png',
       cta: 'Enter Site'
     },
     {
       name: 'Arrow Drive Shop',
       path: '/arrow-drive',
-      image: 'placholder.png',
+      image: 'arrow-thumbnail.png',
       cta: 'Shop Now'
     },
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: 'placholder.png',
+      image: 'placholder-1.jpg',
       cta: 'See Inflatables'
     }
   ];
