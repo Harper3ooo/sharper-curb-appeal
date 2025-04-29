@@ -96,9 +96,9 @@ export default function InflatableBusiness() {
               <button type="submit">Pay & Book Now</button>
             </form>
           </section>
-        )}
-
-      </div> {/* close .container */}
-    </div> {/* close .inflatable-business */}
-  );
+    )}
+    </div> {/* close .container */}
+  </div> {/* close .inflatable-business */}
+</>
+);
 }
