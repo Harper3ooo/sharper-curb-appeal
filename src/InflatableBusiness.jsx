@@ -34,7 +34,17 @@ export default function InflatableBusiness() {
           <p>We’re bringing this one-of-a-kind inflatable to Clinton! Reserve your event date now before spots fill up!</p>
 
           <h2>About This Inflatable</h2>
-          <p>This massive, custom-designed Bowser inflatable will be the centerpiece of any party or event. Great for birthdays, school events, festivals, holidays, and more!</p>
+          <p>Main Features
+            <strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.
+            <strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.
+            <strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.
+            <strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.
+            Perfect For
+            Photo Ops & Fan Experiences: A crowd magnet and unforgettable backdrop for any event.
+            Trade Shows & Exhibits: A bold branding opportunity that turns heads and draws in foot traffic.
+            Outdoor Festivals & Community Events: Adds fun, scale, and energy to any open-air celebration.
+            This isn't just an inflatable — it's an experience.
+            Book now and make your event legendary.</p>
 
           <h2>How to Book</h2>
           <ul>
