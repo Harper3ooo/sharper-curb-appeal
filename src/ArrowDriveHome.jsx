@@ -6,26 +6,32 @@ export default function ArrowDriveHome() {
     {
       name: 'Sharper Curb Appeal',
       path: '/sharper-curb-appeal',
-      image: '/images/curb-thumbnail.png',
+      image: 'https://via.placeholder.com/1200x400?text=Sharper+Curb+Appeal',
       cta: 'Enter Site'
     },
     {
       name: 'Arrow Drive Shop',
       path: '/arrow-drive',
-      image: '/images/arrowdrive-thumbnail.png',
+      image: 'https://via.placeholder.com/1200x400?text=Arrow+Drive+Shop',
       cta: 'Shop Now'
     },
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: '/images/inflatable-thumbnail.png',
+      image: 'https://via.placeholder.com/1200x400?text=Bounce+Houses+%26+More',
       cta: 'See Inflatables'
     }
   ];
 
   return (
     <div className="arrowdrive-home">
-      <div className="thumbnail-container">
+      {/* Logo at top */}
+      <header className="header">
+        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+      </header>
+
+      {/* Thumbnails */}
+      <main className="thumbnail-container">
         {businesses.map((biz, idx) => (
           <Link to={biz.path} key={idx} className="thumbnail-link">
             <div className="thumbnail" style={{ backgroundImage: `url(${biz.image})` }}>
@@ -36,7 +42,12 @@ export default function ArrowDriveHome() {
             </div>
           </Link>
         ))}
-      </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        © {new Date().getFullYear()} Arrow Drive. All rights reserved.
+      </footer>
     </div>
   );
 }

@@ -1,26 +1,29 @@
 .arrowdrive-home {
   background-color: #ffffff;
-  min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem 1rem;
+}
+
+.logo {
+  max-width: 250px;
+  width: 100%;
 }
 
 .thumbnail-container {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
+  flex-grow: 1;
 }
 
 .thumbnail-link {
-  width: 30%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
   text-decoration: none;
-  min-width: 280px;
+  display: block;
+  width: 100%;
+  overflow: hidden;
 }
 
 .thumbnail {
@@ -73,9 +76,28 @@
   background-color: darkorange;
 }
 
-/* Mobile Responsive */
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  background-color: #0d1b2a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 5px solid #00FF00;
+}
+
+/* Responsive Mobile */
 @media (max-width: 768px) {
-  .thumbnail-link {
-    width: 90%;
+  .thumbnail {
+    height: 250px;
+  }
+
+  .overlay h2 {
+    font-size: 1.5rem;
+  }
+
+  .overlay button {
+    font-size: 0.9rem;
   }
 }
