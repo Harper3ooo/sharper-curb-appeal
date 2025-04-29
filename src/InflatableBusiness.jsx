@@ -95,9 +95,7 @@ export default function InflatableBusiness() {
             </form>
           </section>
         )}
-      </div> 
-      {/* close .container */}
-    </div> 
-    {/* close .inflatable-business */}
+      </div>
+    </div>
   );
 }
