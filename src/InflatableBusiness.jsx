@@ -69,8 +69,8 @@ export default function InflatableBusiness() {
           </div>
         </section>
 
-               {/* Booking Form */}
-               {showForm && (
+        {/* Booking Form */}
+        {showForm && (
           <section className="booking-form">
             <h2>Booking for {new Date(selectedDate).toLocaleDateString()}</h2>
             <form action="/payment-link" method="POST">
