@@ -10,10 +10,9 @@ export default function InflatableBusiness() {
     setShowForm(true);
   };
 
-  // Placeholder booked dates; replace with real data from backend or CMS
   const bookedDates = ['2025-05-05', '2025-05-12'];
   const today = new Date();
-  const daysToShow = 30; // Number of days visible in the calendar
+  const daysToShow = 30;
   const availableDates = Array.from({ length: daysToShow }, (_, i) => {
     const date = new Date();
     date.setDate(today.getDate() + i);
@@ -96,7 +95,9 @@ export default function InflatableBusiness() {
             </form>
           </section>
         )}
-      </div> {/* close .container */}
-    </div> {/* close .inflatable-business */}
+      </div> 
+      {/* close .container */}
+    </div> 
+    {/* close .inflatable-business */}
   );
 }
