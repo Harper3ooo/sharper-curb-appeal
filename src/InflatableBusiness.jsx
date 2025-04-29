@@ -45,7 +45,7 @@ export default function InflatableBusiness() {
 
           <h2>Pricing & Details</h2>
           <p><strong>Rental Price:</strong> $175 (Deposit secures your spot!)</p>
-          <p><strong>Size:</strong> Approximately 16 ft tall — perfect for outdoor events!</p>
+          <p><strong>Size:</strong> Approximately 20 ft tall — perfect for outdoor events!</p>
           <p><strong>Service Area:</strong> Clinton, Mississippi and surrounding areas.</p>
         </section>
 
