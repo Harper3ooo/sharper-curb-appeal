@@ -6,7 +6,7 @@ export default function ArrowDriveHome() {
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: '/images/placeholder-1.png',
+      image: '/images/placeholder-1.jpg',
       cta: 'See Inflatables'
     },
     {
