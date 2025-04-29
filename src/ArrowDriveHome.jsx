@@ -12,37 +12,39 @@ export default function ArrowDriveHome() {
     {
       name: 'Arrow Drive Shop',
       path: '/arrow-drive',
-      image: '/images/arrow-thumbnail.png',
-      cta: 'Explore Now'
+      image: '/images/arrowdrive-thumbnail.png',
+      cta: 'Shop Now'
     },
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: '/images/inflatable-thumbnail.jpg',
-      cta: 'Visit Page'
+      image: '/images/inflatable-thumbnail.png',
+      cta: 'See Inflatables'
     }
   ];
 
   return (
-    <div style={{ fontFamily: 'sans-serif', textAlign: 'center', padding: '2rem' }}>
-      <img
-        src="/images/arrow-drive-logo.png"
-        alt="Arrow Drive Logo"
-        style={{ maxWidth: '300px', marginBottom: '3rem' }}
-      />
+    <div className="arrowdrive-home">
+      <header className="header">
+        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+      </header>
 
-      <div className="thumbnail-container">
+      <main className="thumbnail-grid">
         {businesses.map((biz, idx) => (
           <Link to={biz.path} key={idx} className="thumbnail-link">
             <div className="thumbnail" style={{ backgroundImage: `url(${biz.image})` }}>
               <div className="overlay">
                 <h2>{biz.name}</h2>
-                <p>{biz.cta}</p>
+                <button>{biz.cta}</button>
               </div>
             </div>
           </Link>
         ))}
-      </div>
+      </main>
+
+      <footer className="footer">
+        © {new Date().getFullYear()} Arrow Drive. All rights reserved.
+      </footer>
     </div>
   );
 }
