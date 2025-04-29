@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ArrowDriveHome from './ArrowDriveHome';
+import ArrowDriveShop from './ArrowDriveShop';
+import InflatableBusiness from './InflatableBusiness';
 import SharperCurbAppeal from './SharperCurbAppeal';
 import FAQPage from './FAQPage';
 
@@ -32,10 +34,11 @@ export default function App() {
       </nav>
 
       <Routes>
-        <Route path="/" element={<ArrowDriveHome />} /> {/* Homepage with logo + 3 thumbnails */}
+      <Route path="/" element={<ArrowDriveHome />} />
         <Route path="/sharper-curb-appeal" element={<SharperCurbAppeal />} />
+        <Route path="/arrow-drive" element={<ArrowDriveShop />} /> {/* <-- Arrow Drive Shop */}
+        <Route path="/inflatable-business" element={<InflatableBusiness />} /> {/* <-- Bounce House */}
         <Route path="/faq" element={<FAQPage />} />
-        {/* Add other business pages as needed */}
       </Routes>
     </Router>
   );
