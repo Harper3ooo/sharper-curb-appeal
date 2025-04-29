@@ -1,119 +1,178 @@
+/* General Styles */
 .inflatable-business {
-  font-family: 'Oswald', sans-serif;
-  padding: 2rem;
-  background-color: #ffffff;
-  color: #333;
+  font-family: Arial, sans-serif;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 20px;
 }
 
+/* Hero Image */
+.hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Logo Header */
 .logo-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 30px;
 }
 
 .logo {
-  height: 80px;
+  width: 200px;
+  height: auto;
 }
 
-.hero-image {
-  width: 100%;
-  max-width: 600px;
-  display: block;
-  margin: 0 auto 2rem;
-  border-radius: 12px;
-}
-
+/* Info Section */
 .intro {
   text-align: center;
-  margin-bottom: 3rem;
+  padding: 40px 20px;
 }
 
 .intro h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 36px;
+  margin-bottom: 20px;
 }
 
-.intro p, .intro ul, .intro li {
-  font-size: 1rem;
+.intro p {
+  font-size: 18px;
   line-height: 1.6;
+  margin-bottom: 20px;
 }
 
+.intro h2 {
+  font-size: 28px;
+  margin-top: 30px;
+}
+
+.intro ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.intro li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.faq-item h3 {
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.faq-item p {
+  font-size: 16px;
+  margin: 0 0 15px;
+}
+
+/* Calendar Section */
 .calendar-section {
-  text-align: center;
-  margin-bottom: 3rem;
+  padding: 40px 20px;
 }
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .calendar-date {
-  padding: 1rem;
-  background-color: hsl(240, 55%, 17%);
-  border: none;
-  border-radius: 8px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
   cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.2s;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.calendar-date:hover:not(:disabled) {
-  background-color: hsl(221, 100%, 45%);
-  color: #fff;
-  transform: scale(1.05);
-}
-
-.calendar-date.booked {
+.calendar-date:disabled {
   background-color: #ccc;
-  color: #999;
   cursor: not-allowed;
 }
 
+.calendar-date.booked {
+  background-color: #ff6f61;
+  color: #fff;
+}
+
+/* Booking Form */
 .booking-form {
-  max-width: 500px;
-  margin: 0 auto;
-  text-align: left;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin-top: 30px;
 }
 
-.booking-form h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
+.booking-form label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.booking-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.booking-form input[type="text"],
-.booking-form input[type="email"],
-.booking-form input[type="tel"] {
-  padding: 0.5rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
   width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .booking-form button {
-  padding: 0.75rem;
-  background-color: #e60000;
-  color: #fff;
-  font-weight: bold;
+  padding: 10px 15px;
+  background-color: #5cb85c;
+  color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
 .booking-form button:hover {
-  background-color: hsl(31, 100%, 40%);
+  background-color: #4cae4c;
+}
+
+/* Footer Style */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-contact p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.footer-copy p {
+  font-size: 14px;
+  margin: 5px 0 0 0;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
