@@ -21,7 +21,9 @@ export default function InflatablePage() {
   });
 
   return (
-    <div className="inflatable-page">
+    <div className="inflatable-business">
+  <div className="container">
+
       {/* Logo Section */}
       <header className="logo-header">
         <img src="/logo.png" alt="Arrow Drive Logo" className="logo" />
@@ -95,6 +97,8 @@ export default function InflatablePage() {
           </form>
         </section>
       )}
-    </div>
+      </div> {/* close .container */}
+</div> {/* close .inflatable-page */}
+
   );
 }

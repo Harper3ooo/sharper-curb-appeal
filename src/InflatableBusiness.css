@@ -102,3 +102,9 @@
 .booking-form button:hover {
   background-color: #cc0000;
 }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
