@@ -6,7 +6,7 @@ export default function ArrowDriveHome() {
     {
       name: 'Sharper Curb Appeal',
       path: '/sharper-curb-appeal',
-      image: '/images/c-thumbnail.png',
+      image: '/images/curb-thumbnail.png',
       cta: 'Enter Site'
     },
     {
@@ -18,18 +18,14 @@ export default function ArrowDriveHome() {
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: '/images/in-thumbnail.png',
+      image: '/images/inflatable-thumbnail.png',
       cta: 'See Inflatables'
     }
   ];
 
   return (
     <div className="arrowdrive-home">
-      <header className="header">
-        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
-      </header>
-
-      <main className="thumbnail-grid">
+      <div className="thumbnail-container">
         {businesses.map((biz, idx) => (
           <Link to={biz.path} key={idx} className="thumbnail-link">
             <div className="thumbnail" style={{ backgroundImage: `url(${biz.image})` }}>
@@ -40,11 +36,7 @@ export default function ArrowDriveHome() {
             </div>
           </Link>
         ))}
-      </main>
-
-      <footer className="footer">
-        © {new Date().getFullYear()} Arrow Drive. All rights reserved.
-      </footer>
+      </div>
     </div>
   );
 }
