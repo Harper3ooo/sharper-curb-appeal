@@ -23,7 +23,6 @@ export default function InflatableBusiness() {
   return (
     <div className="inflatable-business">
       <div className="container">
-
         {/* Logo Section */}
         <header className="logo-header">
           <img src="/logo.png" alt="Arrow Drive Logo" className="logo" />
@@ -96,9 +95,8 @@ export default function InflatableBusiness() {
               <button type="submit">Pay & Book Now</button>
             </form>
           </section>
-    )}
-    </div> {/* close .container */}
-  </div> {/* close .inflatable-business */}
-</>
-);
+        )}
+      </div> {/* close .container */}
+    </div> {/* close .inflatable-business */}
+  );
 }
