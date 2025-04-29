@@ -59,23 +59,49 @@
   margin-bottom: 10px;
 }
 
-/* FAQ Section */
-.faq-section {
-  padding: 40px 20px;
-  background-color: #fff;
-  border-radius: 8px;
+/* Accordion Section */
+.accordion-section {
   margin-top: 30px;
 }
 
-.faq-item h3 {
-  font-size: 20px;
-  cursor: pointer;
-  margin-bottom: 5px;
+.accordion-item {
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
-.faq-item p {
+.accordion-title {
+  padding: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #007BFF;
+  color: white;
+  text-align: center;
+  border: none;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.accordion-title:hover {
+  background-color: #0056b3;
+}
+
+.accordion-content {
+  padding: 20px;
   font-size: 16px;
-  margin: 0 0 15px;
+}
+
+/* Slider Section */
+.slider-section {
+  margin-top: 30px;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
 /* Calendar Section */

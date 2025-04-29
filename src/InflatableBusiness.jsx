@@ -6,6 +6,7 @@ export default function InflatableBusiness() {
   const [showForm, setShowForm] = useState(false);
   const [numDays, setNumDays] = useState(1); // Track number of days for booking
   const [timeframe, setTimeframe] = useState(''); // Track selected timeframe
+  const [activeAccordion, setActiveAccordion] = useState(null); // Track active accordion section
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
@@ -18,6 +19,10 @@ export default function InflatableBusiness() {
 
   const handleTimeframeSelect = (event) => {
     setTimeframe(event.target.value);
+  };
+
+  const toggleAccordion = (section) => {
+    setActiveAccordion(activeAccordion === section ? null : section);
   };
 
   const bookedDates = ['2025-05-05', '2025-05-12'];
@@ -41,63 +46,70 @@ export default function InflatableBusiness() {
           <img src="/logo.png" alt="Arrow Drive Logo" className="logo" />
         </header>
 
+        {/* Slider Section */}
+        <section className="slider-section">
+          {/* Add your slider component here */}
+          <div className="slider">
+            {/* You can integrate a slider component or use CSS/JS for it */}
+            <img src="/bowser-slider-1.jpg" alt="Inflatable Slider Image 1" />
+            <img src="/bowser-slider-2.jpg" alt="Inflatable Slider Image 2" />
+          </div>
+        </section>
+
         {/* Info Section */}
         <section className="intro">
           <img src="/bowser-inflatable.jpg" alt="Bowser Inflatable" className="hero-image" />
           <h1>Reserve the Epic Bowser Inflatable!</h1>
           <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
-
-          <h2>Details</h2>
-          <ul>
-            <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
-            <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
-            <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
-            <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
-          </ul>
-
-          <h2>How to Book</h2>
-          <ul>
-            <li>Reserve your spot with a $175 deposit.</li>
-            <li>Pick your event date (available dates will be confirmed after launch).</li>
-            <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
-            <li>Celebrate big once the inflatable arrives!</li>
-          </ul>
-
-          <h2>Pricing & Details</h2>
-          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
-          <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
-          <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
-          <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
-          <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
         </section>
 
-        {/* FAQ Section */}
-        <section className="faq-section">
-          <h2>Frequently Asked Questions</h2>
-
-          <div className="faq-item">
-            <h3>How long is a rental?</h3>
-            <p>Each rental includes up to 6 consecutive hours of use. Additional hours may be available for $50/hour.</p>
+        {/* Accordion Section for Details, How to Book, and Pricing */}
+        <section className="accordion-section">
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('details')}>
+              Details
+            </h2>
+            {activeAccordion === 'details' && (
+              <div className="accordion-content">
+                <ul>
+                  <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
+                  <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
+                  <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
+                  <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
+                </ul>
+              </div>
+            )}
           </div>
 
-          <div className="faq-item">
-            <h3>Can I rent for multiple days?</h3>
-            <p>Yes! Each additional day is $175. You can book multiple consecutive days based on availability.</p>
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('how-to-book')}>
+              How to Book
+            </h2>
+            {activeAccordion === 'how-to-book' && (
+              <div className="accordion-content">
+                <ul>
+                  <li>Reserve your spot with a $175 deposit.</li>
+                  <li>Pick your event date (available dates will be confirmed after launch).</li>
+                  <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
+                  <li>Celebrate big once the inflatable arrives!</li>
+                </ul>
+              </div>
+            )}
           </div>
 
-          <div className="faq-item">
-            <h3>What are delivery and pickup times?</h3>
-            <p>You'll select preferred delivery and pickup windows (e.g., 9–11 AM / 5–7 PM) during booking. We'll confirm final times based on availability.</p>
-          </div>
-
-          <div className="faq-item">
-            <h3>Is the deposit refundable?</h3>
-            <p>No, the $175 deposit is non-refundable, but it can be transferred to a different available date if you reschedule at least 7 days in advance.</p>
-          </div>
-
-          <div className="faq-item">
-            <h3>Where do you deliver?</h3>
-            <p>We serve Clinton, Mississippi, and surrounding communities.</p>
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('pricing')}>
+              Pricing & Details
+            </h2>
+            {activeAccordion === 'pricing' && (
+              <div className="accordion-content">
+                <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
+                <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
+                <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
+                <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
+                <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
+              </div>
+            )}
           </div>
         </section>
 

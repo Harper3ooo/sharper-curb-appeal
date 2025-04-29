@@ -31,14 +31,22 @@ export default function App() {
         }}>
           FAQ
         </Link>
+        <Link to="/inflatable-business" style={{
+          color: "white",
+          textDecoration: "none",
+          fontWeight: "bold",
+          fontSize: "1.2rem"
+        }}>
+          Inflatable Business
+        </Link>
       </nav>
 
       <Routes>
-      <Route path="/" element={<ArrowDriveHome />} />
+        <Route path="/" element={<ArrowDriveHome />} />
         <Route path="/sharper-curb-appeal" element={<SharperCurbAppeal />} />
-        <Route path="/arrow-drive" element={<ArrowDriveShop />} /> {/* <-- Arrow Drive Shop */}
-        <Route path="/inflatable-business" element={<InflatableBusiness />} /> {/* <-- Bounce House */}
-        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/arrow-drive" element={<ArrowDriveShop />} /> {/* Arrow Drive Shop */}
+        <Route path="/inflatable-business" element={<InflatableBusiness />} /> {/* Bounce House */}
+        <Route path="/faq" element={<FAQPage />} /> {/* FAQ Page */}
       </Routes>
     </Router>
   );
