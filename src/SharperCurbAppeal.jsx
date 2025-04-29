@@ -117,7 +117,7 @@ export default function SharperCurbAppeal() {
 
       <div style={{
         fontFamily: "'Open Sans', sans-serif",
-        background: "url('/images/background-texture.png') repeat",
+        background: "none",
         backgroundColor: "#ffffff",
         padding: "2rem",
         maxWidth: "1200px",
