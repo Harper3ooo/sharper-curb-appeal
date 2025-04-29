@@ -115,5 +115,5 @@
 }
 
 .booking-form button:hover {
-  background-color: #cc0000;
+  background-color: hsl(31, 100%, 40%);
 }

@@ -34,7 +34,7 @@ export default function InflatableBusiness() {
           <p>We’re bringing this one-of-a-kind inflatable to Clinton! Reserve your event date now before spots fill up!</p>
 
           <h2>About This Inflatable</h2>
-          <p>This massive, custom-designed Bowser inflatable will be the centerpiece of any party or event. Great for birthdays, school events, festivals, and more!</p>
+          <p>This massive, custom-designed Bowser inflatable will be the centerpiece of any party or event. Great for birthdays, school events, festivals, holidays, and more!</p>
 
           <h2>How to Book</h2>
           <ul>
