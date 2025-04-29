@@ -6,19 +6,16 @@ export default function ArrowDriveHome() {
     {
       name: 'Bounce Houses & More',
       path: '/inflatable-business',
-      image: '/images/placeholder-1.jpg',
       cta: 'See Inflatables'
     },
     {
       name: 'Arrow Drive Shop',
       path: '/arrow-drive',
-      image: '/images/arrow-thumbnail.png',
       cta: 'Shop Now'
     },
     {
       name: 'Sharper Curb Appeal',
       path: '/sharper-curb-appeal',
-      image: '/images/curb-thumbnail.png',
       cta: 'Enter Site'
     }
   ];
@@ -30,11 +27,11 @@ export default function ArrowDriveHome() {
         <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
       </header>
 
-      {/* Thumbnails Full Width */}
+      {/* Thumbnails (now just solid black sections) */}
       <main className="thumbnail-container">
         {businesses.map((biz, idx) => (
           <Link to={biz.path} key={idx} className="thumbnail-link">
-            <div className="thumbnail" style={{ backgroundImage: `url(${biz.image})` }}>
+            <div className="thumbnail">
               <div className="overlay">
                 <h2>{biz.name}</h2>
                 <button>{biz.cta}</button>
@@ -44,7 +41,7 @@ export default function ArrowDriveHome() {
         ))}
       </main>
 
-      {/* Footer Matching Sharper Curb Appeal */}
+      {/* Footer */}
       <footer className="footer">
         <img src="/images/logo-white.png" alt="Arrow Drive Footer Logo" className="footer-logo" />
         <div className="footer-links">
