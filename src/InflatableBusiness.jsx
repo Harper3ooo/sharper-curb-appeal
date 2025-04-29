@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './InflatablePage.css';
+import './InflatableBusiness.css';
 
 export default function InflatablePage() {
   const [selectedDate, setSelectedDate] = useState(null);
