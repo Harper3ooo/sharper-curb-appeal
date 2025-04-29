@@ -43,17 +43,8 @@ export default function ArrowDriveHome() {
 
       {/* Footer */}
       <footer className="footer">
-        <img src="/images/logo-white.png" alt="Arrow Drive Footer Logo" className="footer-logo" />
-        <div className="footer-links">
-          <a href="#" className="footer-link">Facebook</a>
-          <a href="#" className="footer-link">Instagram</a>
-        </div>
         <div className="footer-contact">
-          arrowdriveinfo@gmail.com | (601) 123-4567
-        </div>
-        <div className="footer-nav">
-          <a href="/faq" className="footer-link">FAQ</a>
-        </div>
+          arrowdrive@gmail.com | (601) 674-0759
         <div className="footer-copy">
           © {new Date().getFullYear()} Arrow Drive. All rights reserved.
         </div>
