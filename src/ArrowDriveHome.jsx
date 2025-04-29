@@ -43,12 +43,10 @@ export default function ArrowDriveHome() {
 
       {/* Footer */}
       <footer className="footer">
-        <div className="footer-contact">
-          arrowdrive@gmail.com | (601) 674-0759
-        <div className="footer-copy">
-          © {new Date().getFullYear()} Arrow Drive. All rights reserved.
-        </div>
-      </footer>
-    </div>
-  );
-}
+  <div className="footer-contact">
+    arrowdrive@gmail.com | (601) 674-0759
+  </div>
+  <div className="footer-copy">
+    © {new Date().getFullYear()} Arrow Drive. All rights reserved.
+  </div>
+</footer>
