@@ -29,6 +29,7 @@ export default function InflatableBusiness() {
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
+    // Add more booked dates here as needed
   ];
 
   const today = new Date();
@@ -93,6 +94,58 @@ export default function InflatableBusiness() {
         <section className="intro">
           <h1>Reserve the Epic Bowser Inflatable!</h1>
           <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
+        </section>
+
+        {/* Details Accordion */}
+        <section className="accordion-section">
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('details')}>
+              Details
+            </h2>
+            {activeAccordion === 'details' && (
+              <div className="accordion-content">
+                <ul>
+                  <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
+                  <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
+                  <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
+                  <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* How to Book Accordion */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('how-to-book')}>
+              How to Book
+            </h2>
+            {activeAccordion === 'how-to-book' && (
+              <div className="accordion-content">
+                <ul>
+                  <li>Reserve your spot with a $175 deposit.</li>
+                  <li>Pick your event date (available dates will be confirmed after launch).</li>
+                  <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
+                  <li>Celebrate big once the inflatable arrives!</li>
+                </ul>
+              </div>
+            )}
+          </div>
+
+          {/* Pricing & Details Accordion */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('pricing')}>
+              Pricing & Details
+            </h2>
+            {activeAccordion === 'pricing' && (
+              <div className="accordion-content">
+                <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
+                <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
+                <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
+                <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
+                <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
+              </div>
+            )}
+          </div>
         </section>
 
         {/* Book Your Date Now Title */}
