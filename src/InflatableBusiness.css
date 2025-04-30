@@ -73,6 +73,7 @@
   margin-bottom: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  width: 100%; /* Ensure accordion item fills the available width */
 }
 
 .accordion-title {
@@ -84,7 +85,7 @@
   color: white;
   text-align: center;
   border: none;
-  width: 100%;
+  width: 100%; /* Ensure title width matches the container */
   transition: background-color 0.3s;
   border-radius: 8px; /* Ensure no excess space or blue bar past the box */
 }
