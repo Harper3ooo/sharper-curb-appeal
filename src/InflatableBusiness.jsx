@@ -7,6 +7,7 @@ export default function InflatableBusiness() {
   const [showForm, setShowForm] = useState(false);
   const [numDays, setNumDays] = useState(1); // Track number of days for booking
   const [timeframe, setTimeframe] = useState(''); // Track selected timeframe
+  const [activeAccordion, setActiveAccordion] = useState(null); // Track active accordion section
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
@@ -21,10 +22,13 @@ export default function InflatableBusiness() {
     setTimeframe(event.target.value);
   };
 
+  const toggleAccordion = (section) => {
+    setActiveAccordion(activeAccordion === section ? null : section);
+  };
+
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
-    // Add more booked dates here as needed
   ];
 
   const today = new Date();
@@ -34,6 +38,10 @@ export default function InflatableBusiness() {
     date.setDate(today.getDate() + i);
     return date.toISOString().split('T')[0];
   });
+
+  // Pricing adjustment logic
+  const pricePerDay = 175;
+  const totalPrice = numDays * pricePerDay;
 
   // Slick Slider settings
   const sliderSettings = {
@@ -100,90 +108,174 @@ export default function InflatableBusiness() {
         {/* Pricing & Details Section */}
         <section className="pricing-details-section">
           <h2>Pricing & Details</h2>
-          <p><strong>Rental Price:</strong> ${175} per day (includes up to 6 consecutive hours of inflatable use)</p>
+          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
           <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
           <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
           <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
           <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
         </section>
 
-        {/* Book Your Date Now Title */}
+        {/* "Book Your Date Now" Title */}
         <section className="book-your-date-section">
-          <h2>Book Your Date Now</h2>
+          <h1 className="book-your-date-title">Book Your Date Now</h1>
         </section>
 
         {/* Accordion Section for Date Selector */}
         <section className="accordion-section">
           {/* May 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('may')}>
               May 2025
             </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {availableDates.map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
+            {activeAccordion === 'may' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* June 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('june')}>
               June 2025
             </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {availableDates.map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
+            {activeAccordion === 'june' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* July 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('july')}>
               July 2025
             </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {availableDates.map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
+            {activeAccordion === 'july' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
+          </div>
+
+          {/* August 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('august')}>
+              August 2025
+            </h2>
+            {activeAccordion === 'august' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* September 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('september')}>
+              September 2025
+            </h2>
+            {activeAccordion === 'september' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* October 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('october')}>
+              October 2025
+            </h2>
+            {activeAccordion === 'october' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {availableDates.map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
