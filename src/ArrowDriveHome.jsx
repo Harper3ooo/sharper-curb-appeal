@@ -1,22 +1,21 @@
 import { Link } from 'react-router-dom';
-import './ArrowDriveHome.css'; // optional, if you're still using it
 
 export default function ArrowDriveHome() {
   const businesses = [
     {
-      name: 'Sharper Curb Appeal',
+      name: 'SHARPER CURB APPEAL',
       path: '/sharper-curb-appeal',
       image: '/images/curb-thumbnail.png',
       cta: 'Enter Site'
     },
     {
-      name: 'Arrow Drive Shop',
+      name: 'ARROW DRIVE SHOP',
       path: '/arrow-drive',
       image: '/images/arrowdrive-thumbnail.png',
       cta: 'Shop Now'
     },
     {
-      name: 'Bounce Houses & More',
+      name: 'BOUNCE HOUSES & MORE',
       path: '/inflatable-business',
       image: '/images/inflatable-thumbnail.png',
       cta: 'See Inflatables'
@@ -24,100 +23,90 @@ export default function ArrowDriveHome() {
   ];
 
   return (
-    <>
-      <div style={{ width: "100%", margin: 0, padding: 0 }}>
+    <div style={{ backgroundColor: '#fff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Logo */}
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
         <img
           src="/images/arrow-drive-logo.png"
           alt="Arrow Drive Logo"
-          style={{
-            height: "150px",
-            margin: "2rem auto",
-            display: "block"
-          }}
+          style={{ height: '100px', marginBottom: '2rem' }}
         />
+      </div>
 
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
-          width: "100%",
-          margin: 0,
-          padding: 0
-        }}>
-          {businesses.map((biz, idx) => (
-            <Link
-              key={idx}
-              to={biz.path}
-              style={{
-                position: "relative",
-                width: "33.333%",
-                height: "300px",
-                overflow: "hidden",
-                display: "block",
-                textDecoration: "none"
-              }}
-            >
+      {/* Business Blocks */}
+      <div style={{ maxWidth: '960px', margin: '0 auto', width: '100%', padding: '0 1rem', flexGrow: 1 }}>
+        {businesses.map((biz, idx) => (
+          <Link
+            key={idx}
+            to={biz.path}
+            style={{
+              display: 'block',
+              marginBottom: '2rem',
+              textDecoration: 'none',
+              borderRadius: '8px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            <div style={{ position: 'relative', height: '200px' }}>
               <img
                 src={biz.image}
                 alt={biz.name}
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  transition: "filter 0.3s ease"
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  display: 'block'
                 }}
               />
               <div style={{
-                position: "absolute",
+                position: 'absolute',
                 top: 0,
                 left: 0,
-                width: "100%",
-                height: "100%",
-                backgroundColor: "rgba(0,0,0,0.5)",
-                opacity: 0,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "white",
-                fontSize: "1.5rem",
-                fontWeight: "bold",
-                transition: "opacity 0.3s ease"
-              }}
-              className="thumbnail-overlay"
-              >
-                {biz.name}
-                <br />
+                right: 0,
+                bottom: 0,
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                color: 'white',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                padding: '1rem'
+              }}>
+                <h2 style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: '1.8rem',
+                  marginBottom: '0.5rem',
+                  letterSpacing: '1px'
+                }}>{biz.name}</h2>
                 <span style={{
-                  fontSize: "1rem",
-                  border: "1px solid white",
-                  padding: "0.5rem 1rem",
-                  borderRadius: "4px",
-                  marginTop: "0.75rem",
-                  display: "inline-block"
+                  backgroundColor: '#f6a72d',
+                  color: '#fff',
+                  padding: '0.5rem 1rem',
+                  borderRadius: '6px',
+                  fontWeight: 'bold',
+                  fontSize: '0.95rem'
                 }}>
                   {biz.cta}
                 </span>
               </div>
-            </Link>
-          ))}
-        </div>
+            </div>
+          </Link>
+        ))}
       </div>
 
-      <style>
-        {`
-          a:hover .thumbnail-overlay {
-            opacity: 1;
-          }
-
-          @media (max-width: 768px) {
-            a {
-              width: 100% !important;
-              height: 200px !important;
-            }
-          }
-        `}
-      </style>
-    </>
+      {/* Footer */}
+      <footer style={{
+        backgroundColor: '#0d1b2a',
+        color: 'white',
+        textAlign: 'center',
+        padding: '1rem',
+        borderTop: '5px solid limegreen',
+        marginTop: 'auto'
+      }}>
+        © 2025 Arrow Drive. All rights reserved.
+      </footer>
+    </div>
   );
 }
