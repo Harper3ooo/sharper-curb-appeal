@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './ArrowDriveHome.css';
 
@@ -42,7 +43,7 @@ export default function ArrowDriveHome() {
             >
               <div className="overlay">
                 <h2>{biz.name}</h2>
-                <button>{biz.cta}</button>
+                <span className="cta">{biz.cta}</span>
               </div>
             </div>
           </Link>
