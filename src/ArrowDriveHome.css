@@ -1,5 +1,5 @@
 .arrowdrive-home {
-  font-family: 'Oswald', sans-serif; /* Closest to Tungsten Bold */
+  font-family: 'Oswald', sans-serif; /* Closest Google Font to Tungsten Bold */
   color: #0d1b2a;
   background-color: #ffffff;
 }
@@ -16,24 +16,30 @@
 
 .thumbnail-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1rem;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
 }
 
 .thumbnail-link {
-  display: block;
   text-decoration: none;
-  cursor: pointer;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .thumbnail {
-  position: relative;
+  width: 100%;
   height: 300px;
   background-size: cover;
   background-position: center;
-  border-radius: 8px;
-  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.02);
 }
 
 .overlay {
@@ -42,39 +48,36 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  color: #ffffff;
+  background-color: rgba(13, 27, 42, 0.6);
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.thumbnail-link:hover .overlay {
-  opacity: 1;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
 .overlay h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
-.cta {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: orange;
+.thumbnail:hover .overlay h2 {
+  color: #ffffff; /* stays white */
+}
+
+.overlay button {
+  background-color: orange;
   color: white;
-  border-radius: 8px;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.cta:hover {
-  background: #e65c00;
+  margin-top: 0.5rem;
+  font-family: 'Oswald', sans-serif;
 }
 
 .footer {
