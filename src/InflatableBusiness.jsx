@@ -29,8 +29,9 @@ export default function InflatableBusiness() {
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
-    // You can add more booked dates as needed
+    // Add more booked dates here as needed
   ];
+
   const today = new Date();
   const daysToShow = 180; // Extend the calendar to show 180 days (up to October)
   const availableDates = Array.from({ length: daysToShow }, (_, i) => {
@@ -78,23 +79,25 @@ export default function InflatableBusiness() {
         <section className="slider-section">
           <Slider {...sliderSettings}>
             <div>
-              <img src="/bowser-slider-1.jpg" alt="Inflatable Slider Image 1" />
+              <img src="/Bowser1.jpg" alt="Inflatable Slider Image 1" />
             </div>
             <div>
-              <img src="/bowser-slider-2.jpg" alt="Inflatable Slider Image 2" />
+              <img src="/Bowser2.jpg" alt="Inflatable Slider Image 2" />
+            </div>
+            <div>
+              <img src="/Bowser3.jpg" alt="Inflatable Slider Image 3" />
             </div>
           </Slider>
         </section>
 
-        {/* Info Section */}
-        <section className="intro">
-          <img src="/bowser-inflatable.jpg" alt="Bowser Inflatable" className="hero-image" />
-          <h1>Reserve the Epic Bowser Inflatable!</h1>
-          <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
+        {/* Book Your Date Now Title */}
+        <section className="book-your-date-section">
+          <h2>Book Your Date Now</h2>
         </section>
 
         {/* Accordion Section for Date Selector */}
         <section className="accordion-section">
+          {/* May 2025 */}
           <div className="accordion-item">
             <h2 className="accordion-title" onClick={() => toggleAccordion('may')}>
               May 2025
@@ -120,7 +123,7 @@ export default function InflatableBusiness() {
             )}
           </div>
 
-          {/* Repeat for June, July, etc. */}
+          {/* June 2025 */}
           <div className="accordion-item">
             <h2 className="accordion-title" onClick={() => toggleAccordion('june')}>
               June 2025
@@ -146,7 +149,109 @@ export default function InflatableBusiness() {
             )}
           </div>
 
-          {/* More months can be added similarly */}
+          {/* July 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('july')}>
+              July 2025
+            </h2>
+            {activeAccordion === 'july' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {generateMonthDates(6, 2025).map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* August 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('august')}>
+              August 2025
+            </h2>
+            {activeAccordion === 'august' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {generateMonthDates(7, 2025).map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* September 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('september')}>
+              September 2025
+            </h2>
+            {activeAccordion === 'september' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {generateMonthDates(8, 2025).map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* October 2025 */}
+          <div className="accordion-item">
+            <h2 className="accordion-title" onClick={() => toggleAccordion('october')}>
+              October 2025
+            </h2>
+            {activeAccordion === 'october' && (
+              <div className="accordion-content">
+                <div className="calendar-grid">
+                  {generateMonthDates(9, 2025).map((date) => {
+                    const isBooked = bookedDates.includes(date);
+                    return (
+                      <button
+                        key={date}
+                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                        disabled={isBooked}
+                        onClick={() => handleDateSelect(date)}
+                      >
+                        {new Date(date).toLocaleDateString()}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </section>
 
         {/* Booking Form */}
