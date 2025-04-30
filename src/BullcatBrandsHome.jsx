@@ -32,7 +32,7 @@ export default function BullcatBrandsHome() {
   return (
     <div className="bullcat-home">
       <header className="header">
-        <img src="/Desktop/bullcat-brands/public/images/bullcat-brands-logo.png" alt="Bullcat Brands Logo" className="logo" />
+        <img src="/images/bullcat-brands-logo.png" alt="Bullcat Brands Logo" className="logo" />
       </header>
 
       <main className="thumbnail-grid">
