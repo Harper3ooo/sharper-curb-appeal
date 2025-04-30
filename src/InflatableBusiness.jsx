@@ -96,9 +96,41 @@ export default function InflatableBusiness() {
           <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
         </section>
 
-        {/* Book Your Date Now Title */}
+                {/* Details Section */}
+                <section className="details-section">
+          <h2>Details</h2>
+          <ul>
+            <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
+            <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
+            <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
+            <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
+          </ul>
+        </section>
+
+        {/* How to Book Section */}
+        <section className="how-to-book-section">
+          <h2>How to Book</h2>
+          <ul>
+            <li>Reserve your spot with a $175 deposit.</li>
+            <li>Pick your event date (available dates will be confirmed after launch).</li>
+            <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
+            <li>Celebrate big once the inflatable arrives!</li>
+          </ul>
+        </section>
+
+        {/* Pricing & Details Section */}
+        <section className="pricing-details-section">
+          <h2>Pricing & Details</h2>
+          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
+          <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
+          <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
+          <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
+          <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
+        </section>
+
+        {/* Book Your Date Title */}
         <section className="book-your-date-section">
-          <h2>Book Your Date Now</h2>
+          <h1>Book Your Date</h1>
         </section>
 
         {/* Accordion Section for Date Selector */}
