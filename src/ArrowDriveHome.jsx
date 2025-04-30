@@ -26,13 +26,20 @@ export default function ArrowDriveHome() {
   return (
     <div className="arrowdrive-home">
       <header className="header">
-        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+        <img
+          src="/images/arrow-drive-logo.png"
+          alt="Arrow Drive Logo"
+          className="logo"
+        />
       </header>
 
       <main className="thumbnail-grid">
         {businesses.map((biz, idx) => (
           <Link to={biz.path} key={idx} className="thumbnail-link">
-            <div className="thumbnail" style={{ backgroundImage: url(${biz.image}) }}>
+            <div
+              className="thumbnail"
+              style={{ backgroundImage: `url(${biz.image})` }}
+            >
               <div className="overlay">
                 <h2>{biz.name}</h2>
                 <button>{biz.cta}</button>
