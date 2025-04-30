@@ -1,16 +1,18 @@
 import { Link } from 'react-router-dom';
 import './ArrowDriveShop.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function ArrowDriveShop() {
   const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  const products = [
-    { id: 1, name: 'T-Shirt', category: 'Apparel', price: 25, image: '/images/products/tshirt-front.jpg', hoverImage: '/images/products/tshirt-back.jpg' },
-    { id: 2, name: 'Mug', category: 'Home Goods', price: 15, image: '/images/products/mug-front.jpg', hoverImage: '/images/products/mug-back.jpg' },
-    { id: 3, name: 'Hat', category: 'Accessories', price: 20, image: '/images/products/hat-front.jpg', hoverImage: '/images/products/hat-back.jpg' },
-    // Add more products as needed
-  ];
+  useEffect(() => {
+    fetch('/api/printful-products')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.result) setProducts(data.result);
+      });
+  }, []);
 
   const addToCart = (product) => {
     setCart([...cart, product]);
@@ -34,15 +36,15 @@ export default function ArrowDriveShop() {
       <section className="product-grid">
         {products.map((product) => (
           <div key={product.id} className="product-card">
-            <Link to={`/product/${product.id}`} className="product-link">
-              <div className="product-image" style={{ backgroundImage: `url(${product.image})` }}>
-                <div className="hover-image" style={{ backgroundImage: `url(${product.hoverImage})` }}></div>
+            <a href={product.external_url || '#'} className="product-link" target="_blank" rel="noopener noreferrer">
+              <div className="product-image">
+                <img src={product.thumbnail_url} alt={product.name} />
               </div>
               <div className="product-info">
                 <h3>{product.name}</h3>
-                <p>${product.price}</p>
+                {/* Optional: price if available from API */}
               </div>
-            </Link>
+            </a>
             <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
           </div>
         ))}
