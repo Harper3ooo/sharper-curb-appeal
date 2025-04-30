@@ -24,6 +24,7 @@ export default function InflatableBusiness() {
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
+    // Add more booked dates here as needed
   ];
 
   const today = new Date();
@@ -33,10 +34,6 @@ export default function InflatableBusiness() {
     date.setDate(today.getDate() + i);
     return date.toISOString().split('T')[0];
   });
-
-  // Pricing adjustment logic
-  const pricePerDay = 175;
-  const totalPrice = numDays * pricePerDay;
 
   // Slick Slider settings
   const sliderSettings = {
@@ -103,7 +100,7 @@ export default function InflatableBusiness() {
         {/* Pricing & Details Section */}
         <section className="pricing-details-section">
           <h2>Pricing & Details</h2>
-          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
+          <p><strong>Rental Price:</strong> ${175} per day (includes up to 6 consecutive hours of inflatable use)</p>
           <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
           <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
           <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
@@ -119,12 +116,12 @@ export default function InflatableBusiness() {
         <section className="accordion-section">
           {/* May 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('may')}>
+            <h2 className="accordion-title">
               May 2025
             </h2>
             <div className="accordion-content">
               <div className="calendar-grid">
-                {generateMonthDates(4, 2025).map((date) => {
+                {availableDates.map((date) => {
                   const isBooked = bookedDates.includes(date);
                   return (
                     <button
@@ -143,12 +140,12 @@ export default function InflatableBusiness() {
 
           {/* June 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('june')}>
+            <h2 className="accordion-title">
               June 2025
             </h2>
             <div className="accordion-content">
               <div className="calendar-grid">
-                {generateMonthDates(5, 2025).map((date) => {
+                {availableDates.map((date) => {
                   const isBooked = bookedDates.includes(date);
                   return (
                     <button
@@ -167,84 +164,12 @@ export default function InflatableBusiness() {
 
           {/* July 2025 */}
           <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('july')}>
+            <h2 className="accordion-title">
               July 2025
             </h2>
             <div className="accordion-content">
               <div className="calendar-grid">
-                {generateMonthDates(6, 2025).map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* August 2025 */}
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('august')}>
-              August 2025
-            </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {generateMonthDates(7, 2025).map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* September 2025 */}
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('september')}>
-              September 2025
-            </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {generateMonthDates(8, 2025).map((date) => {
-                  const isBooked = bookedDates.includes(date);
-                  return (
-                    <button
-                      key={date}
-                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                      disabled={isBooked}
-                      onClick={() => handleDateSelect(date)}
-                    >
-                      {new Date(date).toLocaleDateString()}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* October 2025 */}
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('october')}>
-              October 2025
-            </h2>
-            <div className="accordion-content">
-              <div className="calendar-grid">
-                {generateMonthDates(9, 2025).map((date) => {
+                {availableDates.map((date) => {
                   const isBooked = bookedDates.includes(date);
                   return (
                     <button
