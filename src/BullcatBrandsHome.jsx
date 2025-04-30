@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import './ArrowDriveHome.css';
+import './BullcatBrandsHome.css';
 
-export default function ArrowDriveHome() {
+export default function BullcatBrandsHome() {
   const businesses = [
     {
       name: 'Sharper Curb Appeal',
@@ -10,7 +10,7 @@ export default function ArrowDriveHome() {
       cta: 'Enter Site'
     },
     {
-      name: 'Arrow Drive Shop',
+      name: 'ArrowDrive Shop',
       path: '/arrow-drive',
       image: '/images/arrowdrive-thumbnail.png',
       cta: 'Shop Now'
@@ -20,13 +20,19 @@ export default function ArrowDriveHome() {
       path: '/inflatable-business',
       image: '/images/inflatable-thumbnail.png',
       cta: 'See Inflatables'
+    },
+    {
+      name: 'Bullcat Brands Branding',
+      path: '/bullcat-branding',
+      image: '/images/branding-thumbnail.png', // placeholder — update image path
+      cta: 'See Work'
     }
   ];
 
   return (
-    <div className="arrowdrive-home">
+    <div className="bullcat-home">
       <header className="header">
-        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+        <img src="/Desktop/bullcat-brands/public/images/bullcat-brands-logo.png" alt="Bullcat Brands Logo" className="logo" />
       </header>
 
       <main className="thumbnail-grid">
@@ -43,7 +49,7 @@ export default function ArrowDriveHome() {
       </main>
 
       <footer className="footer">
-        © {new Date().getFullYear()} Arrow Drive. All rights reserved.
+        © {new Date().getFullYear()} Bullcat Brands. All rights reserved.
       </footer>
     </div>
   );
