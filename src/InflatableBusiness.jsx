@@ -29,10 +29,7 @@ export default function InflatableBusiness() {
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
-    '2025-07-01', '2025-07-02', // Booked dates in July
-    '2025-08-01', '2025-08-02', // Booked dates in August
-    '2025-09-01', '2025-09-02', // Booked dates in September
-    '2025-10-01', '2025-10-02', // Booked dates in October
+    // Add more booked dates here as needed
   ];
 
   const today = new Date();
@@ -56,6 +53,18 @@ export default function InflatableBusiness() {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+  };
+
+  // Generate the months and days to be displayed in each accordion section
+  const generateMonthDates = (month, year) => {
+    const monthStart = new Date(year, month, 1);
+    const monthEnd = new Date(year, month + 1, 0);
+    const daysInMonth = [];
+    for (let day = monthStart.getDate(); day <= monthEnd.getDate(); day++) {
+      const date = new Date(year, month, day).toISOString().split('T')[0];
+      daysInMonth.push(date);
+    }
+    return daysInMonth;
   };
 
   return (
@@ -87,41 +96,9 @@ export default function InflatableBusiness() {
           <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
         </section>
 
-        {/* Details Section */}
-        <section className="details-section">
-          <h2>Details</h2>
-          <ul>
-            <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
-            <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
-            <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
-            <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
-          </ul>
-        </section>
-
-        {/* How to Book Section */}
-        <section className="how-to-book-section">
-          <h2>How to Book</h2>
-          <ul>
-            <li>Reserve your spot with a $175 deposit.</li>
-            <li>Pick your event date (available dates will be confirmed after launch).</li>
-            <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
-            <li>Celebrate big once the inflatable arrives!</li>
-          </ul>
-        </section>
-
-        {/* Pricing & Details Section */}
-        <section className="pricing-details-section">
-          <h2>Pricing & Details</h2>
-          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
-          <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
-          <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
-          <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
-          <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
-        </section>
-
-        {/* "Book Your Date Now" Section (Centered and Connected to Dates) */}
+        {/* Book Your Date Now Title */}
         <section className="book-your-date-section">
-          <h1 className="book-your-date-title">Book Your Date Now</h1>
+          <h2>Book Your Date Now</h2>
         </section>
 
         {/* Accordion Section for Date Selector */}
@@ -134,7 +111,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'may' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(4, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
@@ -160,7 +137,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'june' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(5, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
@@ -186,7 +163,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'july' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(6, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
@@ -212,7 +189,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'august' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(7, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
@@ -238,7 +215,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'september' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(8, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
@@ -264,7 +241,7 @@ export default function InflatableBusiness() {
             {activeAccordion === 'october' && (
               <div className="accordion-content">
                 <div className="calendar-grid">
-                  {availableDates.map((date) => {
+                  {generateMonthDates(9, 2025).map((date) => {
                     const isBooked = bookedDates.includes(date);
                     return (
                       <button
