@@ -90,6 +90,12 @@ export default function InflatableBusiness() {
           </Slider>
         </section>
 
+        {/* Info Text */}
+        <section className="intro">
+          <h1>Reserve the Epic Bowser Inflatable!</h1>
+          <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
+        </section>
+
         {/* Book Your Date Now Title */}
         <section className="book-your-date-section">
           <h2>Book Your Date Now</h2>
