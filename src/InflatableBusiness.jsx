@@ -7,7 +7,6 @@ export default function InflatableBusiness() {
   const [showForm, setShowForm] = useState(false);
   const [numDays, setNumDays] = useState(1); // Track number of days for booking
   const [timeframe, setTimeframe] = useState(''); // Track selected timeframe
-  const [activeAccordion, setActiveAccordion] = useState(null); // Track active accordion section
 
   const handleDateSelect = (date) => {
     setSelectedDate(date);
@@ -20,10 +19,6 @@ export default function InflatableBusiness() {
 
   const handleTimeframeSelect = (event) => {
     setTimeframe(event.target.value);
-  };
-
-  const toggleAccordion = (section) => {
-    setActiveAccordion(activeAccordion === section ? null : section);
   };
 
   const bookedDates = [
@@ -55,18 +50,6 @@ export default function InflatableBusiness() {
     autoplaySpeed: 3000,
   };
 
-  // Generate the months and days to be displayed in each accordion section
-  const generateMonthDates = (month, year) => {
-    const monthStart = new Date(year, month, 1);
-    const monthEnd = new Date(year, month + 1, 0);
-    const daysInMonth = [];
-    for (let day = monthStart.getDate(); day <= monthEnd.getDate(); day++) {
-      const date = new Date(year, month, day).toISOString().split('T')[0];
-      daysInMonth.push(date);
-    }
-    return daysInMonth;
-  };
-
   return (
     <div className="inflatable-business">
       <div className="container">
@@ -96,56 +79,36 @@ export default function InflatableBusiness() {
           <p>Perfect for photo ops and fan experiences, this inflatable is a crowd magnet and an unforgettable backdrop for any event. It’s also ideal for trade shows and exhibits, offering a bold branding opportunity that turns heads and draws foot traffic. At outdoor festivals and community events, it adds fun, scale, and energy to any open-air celebration. This isn't just an inflatable — it's an experience. Book now and make your event legendary.</p>
         </section>
 
-        {/* Details Accordion */}
-        <section className="accordion-section">
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('details')}>
-              Details
-            </h2>
-            {activeAccordion === 'details' && (
-              <div className="accordion-content">
-                <ul>
-                  <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
-                  <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
-                  <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
-                  <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
-                </ul>
-              </div>
-            )}
-          </div>
+        {/* Details Section */}
+        <section className="details-section">
+          <h2>Details</h2>
+          <ul>
+            <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
+            <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
+            <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
+            <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
+          </ul>
+        </section>
 
-          {/* How to Book Accordion */}
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('how-to-book')}>
-              How to Book
-            </h2>
-            {activeAccordion === 'how-to-book' && (
-              <div className="accordion-content">
-                <ul>
-                  <li>Reserve your spot with a $175 deposit.</li>
-                  <li>Pick your event date (available dates will be confirmed after launch).</li>
-                  <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
-                  <li>Celebrate big once the inflatable arrives!</li>
-                </ul>
-              </div>
-            )}
-          </div>
+        {/* How to Book Section */}
+        <section className="how-to-book-section">
+          <h2>How to Book</h2>
+          <ul>
+            <li>Reserve your spot with a $175 deposit.</li>
+            <li>Pick your event date (available dates will be confirmed after launch).</li>
+            <li>Select your event timeframe (morning, afternoon, or specific hours).</li>
+            <li>Celebrate big once the inflatable arrives!</li>
+          </ul>
+        </section>
 
-          {/* Pricing & Details Accordion */}
-          <div className="accordion-item">
-            <h2 className="accordion-title" onClick={() => toggleAccordion('pricing')}>
-              Pricing & Details
-            </h2>
-            {activeAccordion === 'pricing' && (
-              <div className="accordion-content">
-                <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
-                <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
-                <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
-                <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
-                <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
-              </div>
-            )}
-          </div>
+        {/* Pricing & Details Section */}
+        <section className="pricing-details-section">
+          <h2>Pricing & Details</h2>
+          <p><strong>Rental Price:</strong> ${pricePerDay} per day (includes up to 6 consecutive hours of inflatable use)</p>
+          <p><strong>Additional Hours:</strong> $50/hour (by request and availability)</p>
+          <p><strong>Multiple Days:</strong> Add extra days at $175/day</p>
+          <p><strong>Service Area:</strong> Clinton, MS and surrounding areas</p>
+          <p><strong>Deposit:</strong> A $175 non-refundable deposit secures your date</p>
         </section>
 
         {/* Book Your Date Now Title */}
@@ -160,25 +123,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('may')}>
               May 2025
             </h2>
-            {activeAccordion === 'may' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(4, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(4, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
           {/* June 2025 */}
@@ -186,25 +147,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('june')}>
               June 2025
             </h2>
-            {activeAccordion === 'june' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(5, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(5, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
           {/* July 2025 */}
@@ -212,25 +171,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('july')}>
               July 2025
             </h2>
-            {activeAccordion === 'july' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(6, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(6, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
           {/* August 2025 */}
@@ -238,25 +195,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('august')}>
               August 2025
             </h2>
-            {activeAccordion === 'august' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(7, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(7, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
           {/* September 2025 */}
@@ -264,25 +219,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('september')}>
               September 2025
             </h2>
-            {activeAccordion === 'september' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(8, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(8, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
 
           {/* October 2025 */}
@@ -290,25 +243,23 @@ export default function InflatableBusiness() {
             <h2 className="accordion-title" onClick={() => toggleAccordion('october')}>
               October 2025
             </h2>
-            {activeAccordion === 'october' && (
-              <div className="accordion-content">
-                <div className="calendar-grid">
-                  {generateMonthDates(9, 2025).map((date) => {
-                    const isBooked = bookedDates.includes(date);
-                    return (
-                      <button
-                        key={date}
-                        className={`calendar-date ${isBooked ? 'booked' : ''}`}
-                        disabled={isBooked}
-                        onClick={() => handleDateSelect(date)}
-                      >
-                        {new Date(date).toLocaleDateString()}
-                      </button>
-                    );
-                  })}
-                </div>
+            <div className="accordion-content">
+              <div className="calendar-grid">
+                {generateMonthDates(9, 2025).map((date) => {
+                  const isBooked = bookedDates.includes(date);
+                  return (
+                    <button
+                      key={date}
+                      className={`calendar-date ${isBooked ? 'booked' : ''}`}
+                      disabled={isBooked}
+                      onClick={() => handleDateSelect(date)}
+                    >
+                      {new Date(date).toLocaleDateString()}
+                    </button>
+                  );
+                })}
               </div>
-            )}
+            </div>
           </div>
         </section>
 
