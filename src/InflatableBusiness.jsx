@@ -29,7 +29,6 @@ export default function InflatableBusiness() {
   const bookedDates = [
     '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
     '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
-    // Add more booked dates here as needed
   ];
 
   const today = new Date();
