@@ -1,6 +1,8 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
+
 .inflatable-business {
-  font-family: Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif; /* Using Open Sans for body copy */
 }
 
 .container {
@@ -34,6 +36,7 @@
 }
 
 .intro h1 {
+  font-family: 'Bebas Neue', sans-serif; /* Using Bebas Neue for headers */
   font-size: 36px;
   margin-bottom: 20px;
 }
@@ -45,6 +48,7 @@
 }
 
 .intro h2 {
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 28px;
   margin-top: 30px;
 }
@@ -73,6 +77,7 @@
 
 .accordion-title {
   padding: 15px;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 20px;
   cursor: pointer;
   background-color: #007BFF;
@@ -81,6 +86,7 @@
   border: none;
   width: 100%;
   transition: background-color 0.3s;
+  border-radius: 8px; /* Ensure no excess space or blue bar past the box */
 }
 
 .accordion-title:hover {
@@ -111,11 +117,23 @@
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* Three months per row */
   gap: 10px;
   margin-top: 20px;
 }
 
+.calendar-month {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-month h3 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Calendar Date */
 .calendar-date {
   background-color: #f0f0f0;
   padding: 10px;
@@ -124,6 +142,12 @@
   cursor: pointer;
   border: 1px solid #ddd;
   border-radius: 4px;
+  color: navy; /* Navy text for inactive dates */
+}
+
+.calendar-date:hover {
+  background-color: #5cb85c;
+  color: white; /* White text on hover */
 }
 
 .calendar-date:disabled {

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Slider from 'react-slick'; // Import Slick Slider
 import './InflatableBusiness.css';
 
 export default function InflatableBusiness() {
@@ -25,9 +26,13 @@ export default function InflatableBusiness() {
     setActiveAccordion(activeAccordion === section ? null : section);
   };
 
-  const bookedDates = ['2025-05-05', '2025-05-12'];
+  const bookedDates = [
+    '2025-05-01', '2025-05-02', '2025-05-03', // Booked dates in May
+    '2025-06-01', '2025-06-02', '2025-06-03', // Booked dates in June
+    // You can add more booked dates as needed
+  ];
   const today = new Date();
-  const daysToShow = 30;
+  const daysToShow = 180; // Extend the calendar to show 180 days (up to October)
   const availableDates = Array.from({ length: daysToShow }, (_, i) => {
     const date = new Date();
     date.setDate(today.getDate() + i);
@@ -37,6 +42,17 @@ export default function InflatableBusiness() {
   // Pricing adjustment logic
   const pricePerDay = 175;
   const totalPrice = numDays * pricePerDay;
+
+  // Slick Slider settings
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
 
   return (
     <div className="inflatable-business">
@@ -48,12 +64,15 @@ export default function InflatableBusiness() {
 
         {/* Slider Section */}
         <section className="slider-section">
-          {/* Add your slider component here */}
-          <div className="slider">
-            {/* You can integrate a slider component or use CSS/JS for it */}
-            <img src="/bowser-slider-1.jpg" alt="Inflatable Slider Image 1" />
-            <img src="/bowser-slider-2.jpg" alt="Inflatable Slider Image 2" />
-          </div>
+          <Slider {...sliderSettings}>
+            <div>
+              <img src="/bowser-slider-1.jpg" alt="Inflatable Slider Image 1" />
+            </div>
+            <div>
+              <img src="/bowser-slider-2.jpg" alt="Inflatable Slider Image 2" />
+            </div>
+            {/* Add more images as needed */}
+          </Slider>
         </section>
 
         {/* Info Section */}
