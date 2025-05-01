@@ -40,31 +40,18 @@ export default function ArrowDriveShop() {
         {loading ? (
           <p className="loading">Loading products...</p>
         ) : products.length > 0 ? (
-          products.map((product) => {
-            const firstVariant = product.synced?.[0];
-            const externalUrl = firstVariant?.external_url || '#';
-            const price = firstVariant?.retail_price;
-
-            return (
-              <div key={product.id} className="product-card">
-                <a
-                  href={externalUrl}
-                  className="product-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <div className="product-image">
-                    <img src={product.thumbnail_url} alt={product.name} />
-                  </div>
-                  <div className="product-info">
-                    <h3>{product.name}</h3>
-                    {price && <p className="price">from ${price}</p>}
-                  </div>
-                </a>
-                <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
+          products.map((product) => (
+            <div key={product.id} className="product-card">
+              <div className="product-image">
+                <img src={product.thumbnail_url} alt={product.name} />
               </div>
-            );
-          })
+              <div className="product-info">
+                <h3>{product.name}</h3>
+                <p className="variant-count">{product.variants} variants</p>
+              </div>
+              <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
+            </div>
+          ))
         ) : (
           <p className="no-products">No products found.</p>
         )}
