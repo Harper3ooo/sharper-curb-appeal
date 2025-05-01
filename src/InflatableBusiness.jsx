@@ -354,15 +354,29 @@ export default function InflatableBusiness() {
         )}
       </div>
 
-      {/* Footer Section */}
-      <footer className="footer">
-        <div className="footer-contact">
-          <p>arrowdrive@gmail.com | (601) 674-0759</p>
-        </div>
-        <div className="footer-copy">
-          <p>© {new Date().getFullYear()} Arrow Drive. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer style={{
+          marginTop: "4rem",
+          padding: "2rem",
+          backgroundColor: "#0d1b2a",
+          color: "white",
+          textAlign: "center",
+          borderTop: "5px solidhsl(0, 100.00%, 50.00%)"
+        }}>
+          <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+          <div style={{ marginBottom: "1rem" }}>
+            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+            <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            hello@bullcatbrands.com | (601) 674-0759
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+          </div>
+          <div>© 2025 Showtime Inflatables. All rights reserved.</div>
+        </footer>
+      </div>
+    </>
   );
 }

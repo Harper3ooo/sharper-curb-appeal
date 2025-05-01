@@ -58,22 +58,29 @@ export default function ArrowDriveShop() {
         )}
       </section>
 
-      <footer className="footer">
-        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="footer-logo" />
-        <div className="footer-links">
-          <a href="#" className="footer-link">Facebook</a>
-          <a href="#" className="footer-link">Instagram</a>
-        </div>
-        <div className="footer-contact">
-          arrowdriveshop@gmail.com | (601) 123-4567
-        </div>
-        <div className="footer-nav">
-          <a href="/faq" className="footer-link">FAQ</a>
-        </div>
-        <div className="footer-copy">
-          © {new Date().getFullYear()} Arrow Drive. All rights reserved.
-        </div>
-      </footer>
-    </div>
+        {/* Footer */}
+        <footer style={{
+          marginTop: "4rem",
+          padding: "2rem",
+          backgroundColor: "#0d1b2a",
+          color: "white",
+          textAlign: "center",
+          borderTop: "5px solidhsl(0, 100.00%, 50.00%)"
+        }}>
+          <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+          <div style={{ marginBottom: "1rem" }}>
+            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+            <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            hello@bullcatbrands.com | (601) 674-0759
+          </div>
+          <div style={{ marginBottom: "1rem" }}>
+            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+          </div>
+          <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
+        </footer>
+      </div>
+    </>
   );
 }
