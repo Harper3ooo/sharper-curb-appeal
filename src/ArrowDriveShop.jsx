@@ -67,7 +67,7 @@ export default function ArrowDriveShop() {
   textAlign: "center",
   borderTop: "5px solid hsl(0, 100%, 50%)"
 }}>
-  <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+  <img src="/images/arrow-drive-white-logo.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
   <div style={{ marginBottom: "1rem" }}>
     <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
     <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
