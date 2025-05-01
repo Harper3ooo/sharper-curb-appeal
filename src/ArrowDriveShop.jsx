@@ -5,13 +5,16 @@ import { useState, useEffect } from 'react';
 export default function ArrowDriveShop() {
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/api/printful-products')
+    fetch('https://bullcatbrands.com/api/printful-products')
       .then((res) => res.json())
       .then((data) => {
         if (data.result) setProducts(data.result);
-      });
+      })
+      .catch((err) => console.error('Error fetching products:', err))
+      .finally(() => setLoading(false));
   }, []);
 
   const addToCart = (product) => {
@@ -34,20 +37,31 @@ export default function ArrowDriveShop() {
 
       {/* Product Grid */}
       <section className="product-grid">
-        {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <a href={product.external_url || '#'} className="product-link" target="_blank" rel="noopener noreferrer">
-              <div className="product-image">
-                <img src={product.thumbnail_url} alt={product.name} />
-              </div>
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                {/* Optional: price if available from API */}
-              </div>
-            </a>
-            <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
-          </div>
-        ))}
+        {loading ? (
+          <p className="loading">Loading products...</p>
+        ) : products.length > 0 ? (
+          products.map((product) => (
+            <div key={product.id} className="product-card">
+              <a
+                href={product.external_url || '#'}
+                className="product-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="product-image">
+                  <img src={product.thumbnail_url} alt={product.name} />
+                </div>
+                <div className="product-info">
+                  <h3>{product.name}</h3>
+                  {/* Optional: price display */}
+                </div>
+              </a>
+              <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
+            </div>
+          ))
+        ) : (
+          <p className="no-products">No products found.</p>
+        )}
       </section>
 
       {/* Footer */}
