@@ -47,10 +47,9 @@ export default function ArrowDriveShop() {
                 </div>
                 <div className="product-info">
                   <h3>{product.name}</h3>
-                  <p className="variant-count">{product.variants} variants</p>
-                  {price && <p className="price">from ${price}</p>}
+                  {price && <p className="price">${price}</p>}
                 </div>
-                <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
+                <button onClick={() => addToCart(product)} className="add-to-cart">+ Add to Cart</button>
               </div>
             );
           })
