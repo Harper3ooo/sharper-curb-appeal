@@ -65,7 +65,7 @@ export default function ArrowDriveShop() {
   backgroundColor: "#0d1b2a",
   color: "white",
   textAlign: "center",
-  borderTop: "5px solid hsl(0, 100.00%, 50.00%)"
+  borderTop: "5px solid hsl(0, 100%, 50%)"
 }}>
   <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
   <div style={{ marginBottom: "1rem" }}>
@@ -80,3 +80,6 @@ export default function ArrowDriveShop() {
   </div>
   <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
 </footer>
+</div> // ✅ Closing the wrapper div
+);
+}
