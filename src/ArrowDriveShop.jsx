@@ -58,29 +58,25 @@ export default function ArrowDriveShop() {
         )}
       </section>
 
-        {/* Footer */}
-        <footer style={{
-          marginTop: "4rem",
-          padding: "2rem",
-          backgroundColor: "#0d1b2a",
-          color: "white",
-          textAlign: "center",
-          borderTop: "5px solidhsl(0, 100.00%, 50.00%)"
-        }}>
-          <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
-          <div style={{ marginBottom: "1rem" }}>
-            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
-            <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            hello@bullcatbrands.com | (601) 674-0759
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
-          </div>
-          <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
-        </footer>
-      </div>
-    </>
-  );
-}
+{/* Footer */}
+<footer style={{
+  marginTop: "4rem",
+  padding: "2rem",
+  backgroundColor: "#0d1b2a",
+  color: "white",
+  textAlign: "center",
+  borderTop: "5px solid hsl(0, 100.00%, 50.00%)"
+}}>
+  <img src="/images/logo-white.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+  <div style={{ marginBottom: "1rem" }}>
+    <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+    <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
+  </div>
+  <div style={{ marginBottom: "1rem" }}>
+    hello@bullcatbrands.com | (601) 674-0759
+  </div>
+  <div style={{ marginBottom: "1rem" }}>
+    <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+  </div>
+  <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
+</footer>
