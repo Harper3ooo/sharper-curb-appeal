@@ -22,7 +22,7 @@ export default function BullcatBrandsHome() {
       cta: 'See Inflatables'
     },
     {
-      name: 'Bullcat Brands Branding',
+      name: 'Bullcat Brands Branding Co',
       path: '/bullcat-branding',
       image: '/images/branding-thumbnail.png', // placeholder — update image path
       cta: 'See Work'
