@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 
 const PORT = 5000;
-const PRINTFUL_API_KEY = 'S4938NAt6bYfsF7OCH6bQNHMMF9CrN8KPUpFiTOGFsNOvdmHXK85aIpPKL7OyM2D';
+const PRINTFUL_API_KEY = 'D60crme6Wf5aaWoscHPAnFkL7ZdUakhNuYcZCh4mRrp7Jl7kGg0o5faABW17mYuM';
 
 app.get('/api/printful-products', async (req, res) => {
   try {
