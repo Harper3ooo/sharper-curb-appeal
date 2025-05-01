@@ -100,7 +100,7 @@ export default function InflatableBusiness() {
                 <section className="details-section">
           <h2>Details</h2>
           <ul>
-            <li><strong>Massive Size —</strong> At 19.69 feet tall, Bowser commands attention at any event.</li>
+            <li><strong>Massive Size —</strong> At 19.69 feet tall, This Bowser inflatable commands attention at any event.</li>
             <li><strong>Durable Construction —</strong> Crafted from premium, weather-resistant materials for both indoor and outdoor use.</li>
             <li><strong>Quick Setup —</strong> Simple to inflate and deflate, allowing for fast setup, takedown, and easy storage.</li>
             <li><strong>Iconic Design —</strong> Bold colors and detailed features bring the legendary King Koopa to life with stunning accuracy.</li>
