@@ -8,7 +8,7 @@ export default function ArrowDriveShop() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://bullcatbrands.com/api/printful-products')
+    fetchfetch('/api/printful-products')
       .then((res) => res.json())
       .then((data) => {
         if (data.result) setProducts(data.result);
@@ -59,7 +59,7 @@ export default function ArrowDriveShop() {
 
       {/* Footer */}
       <footer className="footer">
-        <img src="/images/logo-white.png" alt="Arrow Drive Logo" className="footer-logo" />
+        <img src="/images/" alt="Arrow Drive Logo" className="footer-logo" />
         <div className="footer-links">
           <a href="#" className="footer-link">Facebook</a>
           <a href="#" className="footer-link">Instagram</a>
