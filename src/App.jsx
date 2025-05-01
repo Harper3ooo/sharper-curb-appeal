@@ -4,6 +4,7 @@ import ArrowDriveShop from './ArrowDriveShop';
 import InflatableBusiness from './InflatableBusiness';
 import SharperCurbAppeal from './SharperCurbAppeal';
 import FAQPage from './FAQPage';
+import PrintfulStore from './components/PrintfulStore'; // ✅ New import
 
 function Navigation() {
   const location = useLocation();
@@ -28,6 +29,9 @@ function Navigation() {
       <Link to="/inflatable-business" style={{ color: "white", textDecoration: "none", fontWeight: "bold", fontSize: "1.2rem" }}>
         Inflatables
       </Link>
+      <Link to="/shop" style={{ color: "white", textDecoration: "none", fontWeight: "bold", fontSize: "1.2rem" }}>
+        Shop
+      </Link>
     </nav>
   );
 }
@@ -42,6 +46,7 @@ export default function App() {
         <Route path="/arrow-drive" element={<ArrowDriveShop />} />
         <Route path="/inflatable-business" element={<InflatableBusiness />} />
         <Route path="/faq" element={<FAQPage />} />
+        <Route path="/shop" element={<PrintfulStore />} /> {/* ✅ New route */}
       </Routes>
     </Router>
   );
