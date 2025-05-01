@@ -59,7 +59,7 @@ export default function ArrowDriveShop() {
 
       {/* Footer */}
       <footer className="footer">
-        <img src="/images/bullcat-brands-logo.png" alt="Arrow Drive Logo" className="footer-logo" />
+        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="footer-logo" />
         <div className="footer-links">
           <a href="#" className="footer-link">Facebook</a>
           <a href="#" className="footer-link">Instagram</a>
