@@ -8,7 +8,7 @@ export default function ArrowDriveShop() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchfetch('/api/printful-products')
+    fetch('/api/printful-products')
       .then((res) => res.json())
       .then((data) => {
         if (data.result) setProducts(data.result);
