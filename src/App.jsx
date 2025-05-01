@@ -3,7 +3,7 @@ import BullcatBrandsHome from './BullcatBrandsHome';
 import ArrowDriveShop from './ArrowDriveShop';
 import InflatableBusiness from './InflatableBusiness';
 import SharperCurbAppeal from './SharperCurbAppeal';
-import BullcatBranding from './BullcatBranding';
+import BullcatBranding from './BullcatBrandsBrandingCo';
 
 export default function App() {
   return (
