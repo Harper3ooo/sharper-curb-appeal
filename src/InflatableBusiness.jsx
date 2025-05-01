@@ -68,7 +68,14 @@ export default function InflatableBusiness() {
   };
 
   return (
-    <div className="inflatable-business">
+    <div style={{
+      fontFamily: "'Open Sans', sans-serif",
+      backgroundColor: "#ffffff",
+      padding: "2rem",
+      maxWidth: "1200px",
+      margin: "0 auto"
+    }}>
+      <div className="inflatable-business">
       <div className="container">
         {/* Logo Section */}
         <header className="logo-header">
@@ -376,6 +383,7 @@ export default function InflatableBusiness() {
         </div>
         <div>© 2025 Showtime Inflatables. All rights reserved.</div>
       </footer>
-    </div> // ✅ Closing for the main .container div
+    </div>
+    </div> // ✅ Nested container for full page layout
   );
 }

@@ -22,7 +22,14 @@ export default function ArrowDriveShop() {
   };
 
   return (
-    <div className="arrowdrive-shop-page">
+    <div style={{
+      fontFamily: "'Open Sans', sans-serif",
+      backgroundColor: "#ffffff",
+      padding: "2rem",
+      maxWidth: "1200px",
+      margin: "0 auto"
+    }}>
+      <div className="arrowdrive-shop-page">
       <header className="header">
         <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
       </header>
@@ -80,6 +87,7 @@ export default function ArrowDriveShop() {
   </div>
   <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
 </footer>
-</div> // ✅ Closing the wrapper div
+</div>
+</div> // ✅ Nested container for full page layout
 );
 }
