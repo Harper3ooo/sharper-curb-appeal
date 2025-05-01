@@ -23,41 +23,42 @@ export default function ArrowDriveShop() {
 
   return (
     <div className="arrowdrive-shop-page">
-      {/* Logo at Top */}
       <header className="header">
         <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
       </header>
 
-      {/* Nav Bar */}
       <nav className="shop-nav">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/arrow-drive" className="nav-link">Shop All</Link>
         <div className="cart-icon">🛒 ({cart.length})</div>
       </nav>
 
-      {/* Product Grid */}
       <section className="product-grid">
         {loading ? (
           <p className="loading">Loading products...</p>
         ) : products.length > 0 ? (
-          products.map((product) => (
-            <div key={product.id} className="product-card">
-              <div className="product-image">
-                <img src={product.thumbnail_url} alt={product.name} />
+          products.map((product) => {
+            const price = product?.synced?.[0]?.retail_price;
+
+            return (
+              <div key={product.id} className="product-card">
+                <div className="product-image">
+                  <img src={product.thumbnail_url} alt={product.name} />
+                </div>
+                <div className="product-info">
+                  <h3>{product.name}</h3>
+                  <p className="variant-count">{product.variants} variants</p>
+                  {price && <p className="price">from ${price}</p>}
+                </div>
+                <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
               </div>
-              <div className="product-info">
-                <h3>{product.name}</h3>
-                <p className="variant-count">{product.variants} variants</p>
-              </div>
-              <button onClick={() => addToCart(product)} className="add-to-cart">+ Cart</button>
-            </div>
-          ))
+            );
+          })
         ) : (
           <p className="no-products">No products found.</p>
         )}
       </section>
 
-      {/* Footer */}
       <footer className="footer">
         <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="footer-logo" />
         <div className="footer-links">
