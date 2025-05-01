@@ -19,3 +19,37 @@
   color: #333;
   margin-top: 0.25rem;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.product-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-info {
+  margin-top: 0.5rem;
+}
+
+.add-to-cart {
+  margin-top: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  font-weight: bold;
+  background-color: #ff9900;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-to-cart:hover {
+  background-color: #e68900;
+}
