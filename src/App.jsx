@@ -41,12 +41,6 @@ export default function App() {
     <Router basename="/">
       <Navigation />
       <Routes>
-        <Route path="/" element={<BullcatBrandsHome />} />
-        <Route path="/sharper-curb-appeal" element={<SharperCurbAppeal />} />
-        <Route path="/arrow-drive" element={<ArrowDriveShop />} />
-        <Route path="/inflatable-business" element={<InflatableBusiness />} />
-        <Route path="/faq" element={<FAQPage />} />
-        <Route path="/shop" element={<PrintfulStore />} /> {/* ✅ New route */}
       </Routes>
     </Router>
   );
