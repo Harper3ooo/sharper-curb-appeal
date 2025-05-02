@@ -76,10 +76,10 @@ export default function ArrowDriveShop() {
 <footer style={{
   marginTop: "4rem",
   padding: "2rem",
-  backgroundColor: "#0d1b2a",
+  backgroundColor: "#111111",
   color: "white",
   textAlign: "center",
-  borderTop: "5px solid hsl(0, 100%, 50%)"
+  borderTop: "5px solid rgb(216, 26, 26)"
 }}>
   <img src="/images/arrow-drive-white-logo.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
   <div style={{ marginBottom: "1rem" }}>
