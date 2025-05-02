@@ -41,8 +41,6 @@ export default function ArrowDriveShop() {
       </header>
 
       <nav className="shop-nav">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/arrow-drive" className="nav-link">Shop All</Link>
         <div className="cart-icon">
           <ShoppingCart size={20} />
           <span className="cart-count">{cart.length}</span>
