@@ -5,6 +5,10 @@ import { useState, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
 
 export default function ArrowDriveShop() {
+  <Helmet>
+    <title>Arrow Drive Shop</title>
+  </Helmet>
+
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,22 +16,8 @@ export default function ArrowDriveShop() {
   useEffect(() => {
     fetch('/api/printful-products')
       .then((res) => res.json())
-      .then(async (data) => {
-        if (!data.result) return;
-
-        const productsWithPrices = await Promise.all(
-          data.result.map(async (product) => {
-            const res = await fetch(`/api/printful-product-detail?id=${product.id}`);
-            const detail = await res.json();
-            const firstVariant = detail.result?.variants?.[0];
-            return {
-              ...product,
-              price: firstVariant?.retail_price || "N/A"
-            };
-          })
-        );
-
-        setProducts(productsWithPrices);
+      .then((data) => {
+        if (data.result) setProducts(data.result);
       })
       .catch((err) => console.error('Error fetching products:', err))
       .finally(() => setLoading(false));
@@ -45,67 +35,66 @@ export default function ArrowDriveShop() {
       maxWidth: "1200px",
       margin: "0 auto"
     }}>
-      <Helmet>
-        <title>Arrow Drive Shop</title>
-      </Helmet>
       <div className="arrowdrive-shop-page">
-        <nav className="shop-nav">
-          <div className="cart-icon">
-            <ShoppingCart size={20} />
-            <span className="cart-count">{cart.length}</span>
-          </div>
-        </nav>
-        <header className="header">
-          <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
-        </header>
+        
+      <nav className="shop-nav">
+        <div className="cart-icon">
+          <ShoppingCart size={20} />
+          <span className="cart-count">{cart.length}</span>
+        </div>
+      </nav>
+      <header className="header">
+        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+      </header>
 
-        <section className="product-grid">
-          {loading ? (
-            <p className="loading">Loading products...</p>
-          ) : products.length > 0 ? (
-            products.map((product) => (
+      <section className="product-grid">
+        {loading ? (
+          <p className="loading">Loading products...</p>
+        ) : products.length > 0 ? (
+          products.map((product) => {
+            const price = product?.synced?.[0]?.retail_price;
+
+            return (
               <div key={product.id} className="product-card">
-                <Link to={`/product/${product.id}`} className="product-link">
-<div className="product-image">
+                <div className="product-image">
                   <img src={product.thumbnail_url} alt={product.name} />
                 </div>
                 <div className="product-info">
                   <h3>{product.name}</h3>
-                  <p className="product-price">${product.price}</p>
+                  {price && <p className="price">${price}</p>}
                 </div>
-                
-</Link>
-<button onClick={() => addToCart(product)} className="add-to-cart">+ Add to Cart</button>
+                <button onClick={() => addToCart(product)} className="add-to-cart">+ Add to Cart</button>
               </div>
-            ))
-          ) : (
-            <p className="no-products">No products found.</p>
-          )}
-        </section>
+            );
+          })
+        ) : (
+          <p className="no-products">No products found.</p>
+        )}
+      </section>
 
-        {/* Footer */}
-        <footer style={{
-          marginTop: "4rem",
-          padding: "2rem",
-          backgroundColor: "#111111",
-          color: "white",
-          textAlign: "center",
-          borderTop: "5px solid rgb(216, 26, 26)"
-        }}>
-          <img src="/images/arrow-drive-white-logo.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
-          <div style={{ marginBottom: "1rem" }}>
-            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
-            <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            hello@bullcatbrands.com | (601) 674-0759
-          </div>
-          <div style={{ marginBottom: "1rem" }}>
-            <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
-          </div>
-          <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
-        </footer>
-      </div>
-    </div>
-  );
+{/* Footer */}
+<footer style={{
+  marginTop: "4rem",
+  padding: "2rem",
+  backgroundColor: "#111111",
+  color: "white",
+  textAlign: "center",
+  borderTop: "5px solid rgb(216, 26, 26)"
+}}>
+  <img src="/images/arrow-drive-white-logo.png" alt="Logo" style={{ height: "125px", marginBottom: "1rem" }} />
+  <div style={{ marginBottom: "1rem" }}>
+    <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>Facebook</a>
+    <a href="#" style={{ color: "white", textDecoration: "underline" }}>Instagram</a>
+  </div>
+  <div style={{ marginBottom: "1rem" }}>
+    hello@bullcatbrands.com | (601) 674-0759
+  </div>
+  <div style={{ marginBottom: "1rem" }}>
+    <a href="#" style={{ marginRight: "1rem", color: "white", textDecoration: "underline" }}>FAQ</a>
+  </div>
+  <div>© 2025 Arrow Drive Shop. All rights reserved.</div>
+</footer>
+</div>
+</div> // ✅ Nested container for full page layout
+);
 }
