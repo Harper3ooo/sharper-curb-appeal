@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import './ArrowDriveShop.css';
 import { useState, useEffect } from 'react';
+import { ShoppingCart } from 'lucide-react';
 
 export default function ArrowDriveShop() {
   <Helmet>
@@ -42,7 +43,10 @@ export default function ArrowDriveShop() {
       <nav className="shop-nav">
         <Link to="/" className="nav-link">Home</Link>
         <Link to="/arrow-drive" className="nav-link">Shop All</Link>
-        <div className="cart-icon">🛒 ({cart.length})</div>
+        <div className="cart-icon">
+          <ShoppingCart size={20} />
+          <span className="cart-count">{cart.length}</span>
+        </div>
       </nav>
 
       <section className="product-grid">
