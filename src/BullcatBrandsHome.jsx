@@ -16,7 +16,7 @@ export default function BullcatBrandsHome() {
       cta: 'Shop Now'
     },
     {
-      name: 'Bounce Houses & More',
+      name: 'Showtime Inflatables',
       path: '/inflatable-business',
       image: '/images/inflatable-thumbnail.png',
       cta: 'See Inflatables'
