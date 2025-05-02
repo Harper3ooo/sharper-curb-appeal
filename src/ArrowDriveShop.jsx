@@ -43,7 +43,6 @@ export default function ArrowDriveShop() {
           <span className="cart-count">{cart.length}</span>
         </div>
       </nav>
-
       <header className="header">
         <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
       </header>
