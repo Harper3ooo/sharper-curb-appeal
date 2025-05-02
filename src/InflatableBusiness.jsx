@@ -5,7 +5,7 @@ import './InflatableBusiness.css';
 
 export default function InflatableBusiness() {
   <Helmet>
-    <title>Inflatable Rentals | Bullcat Brands</title>
+    <title>Showtime Inflatables</title>
   </Helmet>
 
   const [selectedDate, setSelectedDate] = useState(null);

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 
 export default function ArrowDriveShop() {
   <Helmet>
-    <title>Arrow Drive Shop | Bullcat Brands</title>
+    <title>Arrow Drive Shop</title>
   </Helmet>
 
   const [cart, setCart] = useState([]);

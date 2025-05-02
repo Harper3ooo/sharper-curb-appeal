@@ -4,7 +4,7 @@ import './BullcatBrandsHome.css';
 
 export default function BullcatBrandsHome() {
   <Helmet>
-    <title>Bullcat Brands | Home</title>
+    <title>Bullcat Brands</title>
   </Helmet>
 
   const businesses = [

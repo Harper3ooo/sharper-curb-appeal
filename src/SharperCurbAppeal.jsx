@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function SharperCurbAppeal() {
   <Helmet>
-    <title>Sharper Curb Appeal | Bullcat Brands</title>
+    <title>Sharper Curb Appeal</title>
   </Helmet>
 
   const [cart, setCart] = useState([]);
