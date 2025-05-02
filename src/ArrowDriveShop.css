@@ -5,6 +5,14 @@
   margin: 0;
 }
 
+.shop-nav {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* pushes content all the way right */
+  padding: 1rem 2rem;
+  background-color: #ffffff00;
+}
+
 .cart-icon {
   display: flex;
   align-items: center;
