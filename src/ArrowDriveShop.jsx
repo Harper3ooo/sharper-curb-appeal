@@ -36,16 +36,17 @@ export default function ArrowDriveShop() {
       margin: "0 auto"
     }}>
       <div className="arrowdrive-shop-page">
-      <header className="header">
-        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
-      </header>
-
+        
       <nav className="shop-nav">
         <div className="cart-icon">
           <ShoppingCart size={20} />
           <span className="cart-count">{cart.length}</span>
         </div>
       </nav>
+
+      <header className="header">
+        <img src="/images/arrow-drive-logo.png" alt="Arrow Drive Logo" className="logo" />
+      </header>
 
       <section className="product-grid">
         {loading ? (
