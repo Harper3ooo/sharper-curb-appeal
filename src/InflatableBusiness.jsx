@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet';
 import { useState } from 'react';
 import Slider from 'react-slick'; // Import Slick Slider
 import './InflatableBusiness.css';
 
 export default function InflatableBusiness() {
+  <Helmet>
+    <title>Inflatable Rentals | Bullcat Brands</title>
+  </Helmet>
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [numDays, setNumDays] = useState(1); // Track number of days for booking

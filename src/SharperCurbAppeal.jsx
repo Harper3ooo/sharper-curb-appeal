@@ -1,9 +1,14 @@
+import { Helmet } from 'react-helmet';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useState, useEffect } from 'react';
 
 export default function SharperCurbAppeal() {
+  <Helmet>
+    <title>Sharper Curb Appeal | Bullcat Brands</title>
+  </Helmet>
+
   const [cart, setCart] = useState([]);
   const [selectedDate, setSelectedDate] = useState('');
   const [name, setName] = useState('');

@@ -1,7 +1,12 @@
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import './BullcatBrandsHome.css';
 
 export default function BullcatBrandsHome() {
+  <Helmet>
+    <title>Bullcat Brands | Home</title>
+  </Helmet>
+
   const businesses = [
     {
       name: 'Sharper Curb Appeal',

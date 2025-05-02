@@ -1,8 +1,13 @@
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import './ArrowDriveShop.css';
 import { useState, useEffect } from 'react';
 
 export default function ArrowDriveShop() {
+  <Helmet>
+    <title>Arrow Drive Shop | Bullcat Brands</title>
+  </Helmet>
+
   const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
